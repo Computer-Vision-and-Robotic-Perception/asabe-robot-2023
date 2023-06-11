@@ -7,7 +7,7 @@ void setup() {
   // For Uno, Nano, Mini, and Mega, use UART port of DYNAMIXEL Shield to debug.
   DEBUG_SERIAL.begin(57600);
   Serial.begin(57600);
-  Serial.println("Starting bebugger...");
+  //Serial.println("Starting bebugger...");
 }
 
 void loop() {
