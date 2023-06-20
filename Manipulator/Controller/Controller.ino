@@ -2,17 +2,17 @@
 #include <Servo.h>
 
 // The Stepper0 pins (Base Rotation)
-#define STEPPER0_DIR_PIN 8
-#define STEPPER0_STP_PIN 9
+#define STEPPER0_DIR_PIN 5
+#define STEPPER0_STP_PIN 2
 // The Stepper1 pins (First Linear Actuator)
-#define STEPPER1_DIR_PIN 2
+#define STEPPER1_DIR_PIN 6
 #define STEPPER1_STP_PIN 3
 // The Stepper2 pins (End Rotation)
-#define STEPPER2_DIR_PIN 6  
-#define STEPPER2_STP_PIN 7
+#define STEPPER2_DIR_PIN 7  
+#define STEPPER2_STP_PIN 4
 // The Stepper3 pins (Second Linear Actuator)
-#define STEPPER3_DIR_PIN 4  
-#define STEPPER3_STP_PIN 5
+#define STEPPER3_DIR_PIN 13  
+#define STEPPER3_STP_PIN 12
 // The Servo0 pin
 #define SERVO0_PIN 10
 // The Servo1 pin
@@ -135,6 +135,8 @@ void report(bool positions=1, bool setpoint=1, bool velocity=1)
 void setup()
 {  
     Serial.begin(2e6);
+    pinMode(8, OUTPUT);
+    digitalWrite(8, LOW);
     stepper0.setMaxSpeed(800.0);
     stepper0.setAcceleration(1600.0);
     stepper1.setMaxSpeed(800.0);
@@ -162,5 +164,5 @@ void loop()
     measure();
     update_setpoint();
     //echo();
-    //report(1,1,0);      //(positions, setpoints, velocity);
+    report(1,1,0);      //(positions, setpoints, velocity);
 }
