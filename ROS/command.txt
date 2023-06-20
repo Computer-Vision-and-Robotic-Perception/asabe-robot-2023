@@ -1,3 +1,6 @@
+### RealSense
+# From: https://github.com/IntelRealSense/realsense-ros
+
 # Start the camera node with ros2 run:
 ros2 run realsense2_camera realsense2_camera_node
 
@@ -5,8 +8,11 @@ ros2 run realsense2_camera realsense2_camera_node
 ros2 run realsense2_camera realsense2_camera_node --ros-args -p enable_color:=false -p spatial_filter.enable:=true -p temporal_filter.enable:=true
 
 # Start the camera node with with ros2 launch:
-ros2 launch realsense2_camera rs_launch.py
+ros2 launch realsense2_camera rs_launch.py (*works with rviz and rqt)
 ros2 launch realsense2_camera rs_launch.py depth_module.profile:=1280x720x30 pointcloud.enable:=true
 
-# yolov8-ros pakage
-# ref: https://github.com/IntelRealSense/realsense-ros
+### RPLIDAR
+# From https://github.com/Slamtec/rplidar_ros/tree/ros2-devel
+
+# The command for RPLIDAR A1 is :
+ros2 launch rplidar_ros view_rplidar_a1_launch.py
