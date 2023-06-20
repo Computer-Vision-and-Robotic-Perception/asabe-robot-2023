@@ -1,0 +1,4 @@
+[submodule "ROS/src/rplidar_ros"]
+	path = ROS/src/rplidar_ros
+	url = https://github.com/Slamtec/rplidar_ros
+	branch = ros2-devel
