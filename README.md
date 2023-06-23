@@ -4,4 +4,4 @@
 ## Main Components
 ### Raspberry Pi 4B
 ### RealSense RGBD Camera
-
+### Slamtec RPLIDAR A1-M8

@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="asabe_robot_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.01912 0.0011886 0.0092468"
+        rpy="0 0 0" />
+      <mass
+        value="0.78986" />
+      <inertia
+        ixx="0.0020986"
+        ixy="-1.3798E-07"
+        ixz="-2.0391E-05"
+        iyy="0.0033408"
+        iyz="4.2971E-07"
+        izz="0.0053539" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link_wheel1">
+    <inertial>
+      <origin
+        xyz="4.1633E-17 -4.1633E-17 -0.0074545"
+        rpy="0 0 0" />
+      <mass
+        value="0.03913" />
+      <inertia
+        ixx="1.4554E-05"
+        ixy="-1.1471E-22"
+        ixz="-4.1333E-21"
+        iyy="1.4554E-05"
+        iyz="8.1676E-21"
+        izz="2.7117E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_wheel1"
+    type="continuous">
+    <origin
+      xyz="0.10075 -0.123 0.01425"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel1" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link_wheel2">
+    <inertial>
+      <origin
+        xyz="1.3878E-17 4.8572E-17 -0.0074545"
+        rpy="0 0 0" />
+      <mass
+        value="0.03913" />
+      <inertia
+        ixx="1.4554E-05"
+        ixy="3.9294E-22"
+        ixz="-5.24E-22"
+        iyy="1.4554E-05"
+        iyz="-9.2404E-21"
+        izz="2.7117E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_wheel2"
+    type="continuous">
+    <origin
+      xyz="0.10075 0.123 0.01425"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel2" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link_wheel3">
+    <inertial>
+      <origin
+        xyz="-1.3878E-17 5.2042E-17 -0.0074545"
+        rpy="0 0 0" />
+      <mass
+        value="0.03913" />
+      <inertia
+        ixx="1.4554E-05"
+        ixy="-1.7229E-25"
+        ixz="2.4714E-22"
+        iyy="1.4554E-05"
+        iyz="-9.2065E-21"
+        izz="2.7117E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_wheel3"
+    type="continuous">
+    <origin
+      xyz="-0.10075 0.123 0.01425"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel3" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link_wheel4">
+    <inertial>
+      <origin
+        xyz="0 -5.2042E-17 -0.0074545"
+        rpy="0 0 0" />
+      <mass
+        value="0.03913" />
+      <inertia
+        ixx="1.4554E-05"
+        ixy="1.024E-23"
+        ixz="-2.8314E-21"
+        iyy="1.4554E-05"
+        iyz="9.2044E-21"
+        izz="2.7117E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_wheel4"
+    type="continuous">
+    <origin
+      xyz="-0.10075 -0.123 0.01425"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Link_arm1">
+    <inertial>
+      <origin
+        xyz="0.033146 0.009228 0.027122"
+        rpy="0 0 0" />
+      <mass
+        value="0.52977" />
+      <inertia
+        ixx="0.00086749"
+        ixy="-2.5625E-05"
+        ixz="-1.7029E-05"
+        iyy="0.0010469"
+        iyz="3.1451E-06"
+        izz="0.0018174" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_arm1"
+    type="fixed">
+    <origin
+      xyz="-0.084 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_arm1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Link_arm2">
+    <inertial>
+      <origin
+        xyz="-0.0012502 -0.0044304 0.035885"
+        rpy="0 0 0" />
+      <mass
+        value="0.38055" />
+      <inertia
+        ixx="0.00059052"
+        ixy="3.1075E-06"
+        ixz="4.3079E-07"
+        iyy="0.00059801"
+        iyz="5.6852E-07"
+        izz="0.00046663" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_arm2"
+    type="revolute">
+    <origin
+      xyz="0 0 0.035"
+      rpy="0 0 0" />
+    <parent
+      link="Link_arm1" />
+    <child
+      link="Link_arm2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="6.24"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Link_arm3">
+    <inertial>
+      <origin
+        xyz="-0.00014558 -0.012857 0.080902"
+        rpy="0 0 0" />
+      <mass
+        value="0.52829" />
+      <inertia
+        ixx="0.00092741"
+        ixy="3.0845E-06"
+        ixz="2.0717E-07"
+        iyy="0.00083924"
+        iyz="0.0001015"
+        izz="0.0015259" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_arm3"
+    type="prismatic">
+    <origin
+      xyz="0 0 0.0405"
+      rpy="0 0 0" />
+    <parent
+      link="Link_arm2" />
+    <child
+      link="Link_arm3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.15"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Link_arm4">
+    <inertial>
+      <origin
+        xyz="-0.021335 0.0014098 -0.024892"
+        rpy="0 0 0" />
+      <mass
+        value="0.23793" />
+      <inertia
+        ixx="0.00016138"
+        ixy="-6.1184E-07"
+        ixz="2.2904E-06"
+        iyy="0.00030915"
+        iyz="-5.1236E-07"
+        izz="0.00036857" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_arm4"
+    type="revolute">
+    <origin
+      xyz="0 -0.0835 0.16784"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link_arm3" />
+    <child
+      link="Link_arm4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="6.24"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Link_arm5">
+    <inertial>
+      <origin
+        xyz="0.00033505 -0.013271 0.067796"
+        rpy="0 0 0" />
+      <mass
+        value="0.12412" />
+      <inertia
+        ixx="9.7134E-05"
+        ixy="3.5937E-15"
+        ixz="-2.6794E-08"
+        iyy="7.7548E-05"
+        iyz="2.0589E-06"
+        izz="4.6907E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="3.14159 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="3.14159 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_arm5"
+    type="prismatic">
+    <origin
+      xyz="0.0445 0 -0.031"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="Link_arm4" />
+    <child
+      link="Link_arm5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0.1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Link_arm6">
+    <inertial>
+      <origin
+        xyz="0.008683 -0.014046 0.034385"
+        rpy="0 0 0" />
+      <mass
+        value="0.043811" />
+      <inertia
+        ixx="9.1016E-06"
+        ixy="7.2728E-08"
+        ixz="4.0116E-09"
+        iyy="4.5879E-06"
+        iyz="-5.5331E-08"
+        izz="6.5899E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_arm6"
+    type="revolute">
+    <origin
+      xyz="0.0094 0.0397 -0.12045"
+      rpy="0 3.14159 3.14159" />
+    <parent
+      link="Link_arm5" />
+    <child
+      link="Link_arm6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+    <link
+    name="grasp_point">
+    <!-- <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_arm6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual> -->
+  </link>
+  <joint
+    name="Joint_grasp_point"
+    type="fixed">
+    <origin
+      xyz="0 0 0.1"
+      rpy="3.14159 -1.5707 0" />
+    <parent
+      link="Link_arm6" />
+    <child
+      link="grasp_point" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+
+</robot>
