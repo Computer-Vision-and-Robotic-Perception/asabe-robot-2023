@@ -17,3 +17,7 @@
 	path = ROS/src/dynamixel-workbench-msgs
 	url = https://github.com/ROBOTIS-GIT/dynamixel-workbench-msgs.git
 	branch = humble-devel
+[submodule "ROS/src/dynamixel_control"]
+	path = ROS/src/dynamixel_control
+	url = https://github.com/youtalk/dynamixel_control.git
+	branch = humble
