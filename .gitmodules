@@ -5,3 +5,15 @@
 [submodule "ROS/src/realsense-ros"]
 	path = ROS/src/realsense-ros
 	url = https://github.com/IntelRealSense/realsense-ros
+[submodule "ROS/src/DynamixelSDK"]
+	path = ROS/src/DynamixelSDK
+	url = https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+	branch = humble-devel
+[submodule "ROS/src/dynamixel-workbench"]
+	path = ROS/src/dynamixel-workbench
+	url = https://github.com/ROBOTIS-GIT/dynamixel-workbench.git
+	branch = humble-devel
+[submodule "ROS/src/dynamixel-workbench-msgs"]
+	path = ROS/src/dynamixel-workbench-msgs
+	url = https://github.com/ROBOTIS-GIT/dynamixel-workbench-msgs.git
+	branch = humble-devel
