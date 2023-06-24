@@ -7,6 +7,8 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import ExecuteProcess
 from launch.substitutions import LaunchConfiguration
+
+
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     package_name = 'asabe_robot_description'
@@ -14,7 +16,7 @@ def generate_launch_description():
     robot_name = 'robot_description.urdf'
 
     world = os.path.join(get_package_share_directory(
-        package_name), 'worlds', world_file_name)
+        package_name), 'world', world_file_name)
 
     urdf = os.path.join(get_package_share_directory(
         package_name), 'urdf', robot_name)

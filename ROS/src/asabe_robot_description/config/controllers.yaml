@@ -1,0 +1,31 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+diff_drive_controller:
+  ros__parameters:
+    right_wheel_names: ['Joint_wheel1', 'Joint_wheel4']
+    left_wheel_names: ['Joint_wheel2', 'Joint_wheel3']
+
+    command_interfaces:
+      - velocity
+
+    state_interfaces:
+      - velocity
+
+    pose_covariance_diagonal : [0.001, 0.001, 0.0, 0.0, 0.0, 0.01]
+    twist_covariance_diagonal: [0.001, 0.0, 0.0, 0.0, 0.0, 0.01]
+
+joint_state_broadcaster:
+  ros__parameters:
+    joints:
+      - 'Joint_wheel1'
+      - 'Joint_wheel2'
+      - 'Joint_wheel3'
+      - 'Joint_wheel4'

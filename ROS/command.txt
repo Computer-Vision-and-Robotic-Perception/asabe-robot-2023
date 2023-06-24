@@ -16,3 +16,7 @@ ros2 launch realsense2_camera rs_launch.py depth_module.profile:=1280x720x30 poi
 
 # The command for RPLIDAR A1 is :
 ros2 launch rplidar_ros view_rplidar_a1_launch.py
+
+
+## Latest:
+ros2 topic pub /diff_drive_controller/cmd_vel geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 1, nanosec: 0}, frame_id: 1}, twist:{linear: {x: 0,y: 0,z: 0}, angular: {x: 0, y: 0, z: 0}}}"

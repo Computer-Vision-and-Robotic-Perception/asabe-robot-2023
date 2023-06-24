@@ -44,8 +44,9 @@
       </geometry>
     </collision>
   </link>
+
   <link
-    name="Link_wheel1">
+    name="Link_wheel1"> <!--dynamixel id:2-->
     <inertial>
       <origin
         xyz="4.1633E-17 -4.1633E-17 -0.0074545"
@@ -84,9 +85,10 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="Joint_wheel1"
-    type="continuous">
+    type="continuous"> <!--dynamixel id:2-->
     <origin
       xyz="0.10075 -0.123 0.01425"
       rpy="-1.5708 0 0" />
@@ -97,8 +99,10 @@
     <axis
       xyz="0 0 -1" />
   </joint>
+
+
   <link
-    name="Link_wheel2">
+    name="Link_wheel2"> <!--dynamixel id:3-->
     <inertial>
       <origin
         xyz="1.3878E-17 4.8572E-17 -0.0074545"
@@ -137,9 +141,10 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="Joint_wheel2"
-    type="continuous">
+    type="continuous"> <!--dynamixel id:3-->
     <origin
       xyz="0.10075 0.123 0.01425"
       rpy="1.5708 0 0" />
@@ -150,8 +155,10 @@
     <axis
       xyz="0 0 -1" />
   </joint>
+
+
   <link
-    name="Link_wheel3">
+    name="Link_wheel3"> <!--dynamixel id:4-->
     <inertial>
       <origin
         xyz="-1.3878E-17 5.2042E-17 -0.0074545"
@@ -190,9 +197,10 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="Joint_wheel3"
-    type="continuous">
+    type="continuous"> <!--dynamixel id:4-->
     <origin
       xyz="-0.10075 0.123 0.01425"
       rpy="1.5708 0 0" />
@@ -203,8 +211,10 @@
     <axis
       xyz="0 0 -1" />
   </joint>
+
+
   <link
-    name="Link_wheel4">
+    name="Link_wheel4"> <!--dynamixel id:1-->
     <inertial>
       <origin
         xyz="0 -5.2042E-17 -0.0074545"
@@ -245,7 +255,7 @@
   </link>
   <joint
     name="Joint_wheel4"
-    type="continuous">
+    type="continuous"> <!--dynamixel id:1-->
     <origin
       xyz="-0.10075 -0.123 0.01425"
       rpy="-1.5708 0 0" />
@@ -261,6 +271,8 @@
       effort="0"
       velocity="0" />
   </joint>
+
+
   <link
     name="Link_arm1">
     <inertial>
@@ -301,6 +313,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="Joint_arm1"
     type="fixed">
@@ -314,6 +327,8 @@
     <axis
       xyz="0 0 0" />
   </joint>
+
+
   <link
     name="Link_arm2">
     <inertial>
@@ -354,6 +369,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="Joint_arm2"
     type="revolute">
@@ -412,6 +428,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="Joint_arm3"
     type="prismatic">
@@ -430,6 +447,8 @@
       effort="0"
       velocity="0" />
   </joint>
+
+
   <link
     name="Link_arm4">
     <inertial>
@@ -470,6 +489,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="Joint_arm4"
     type="revolute">
@@ -488,6 +508,8 @@
       effort="0"
       velocity="0" />
   </joint>
+
+
   <link
     name="Link_arm5">
     <inertial>
@@ -528,6 +550,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="Joint_arm5"
     type="prismatic">
@@ -546,6 +569,8 @@
       effort="0"
       velocity="0" />
   </joint>
+
+
   <link
     name="Link_arm6">
     <inertial>
@@ -586,6 +611,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="Joint_arm6"
     type="revolute">
@@ -622,6 +648,7 @@
       </material>
     </visual> -->
   </link>
+
   <joint
     name="Joint_grasp_point"
     type="fixed">
@@ -636,6 +663,49 @@
       xyz="0 0 0" />
   </joint>
 
+  <ros2_control name="asabe_robot_description" type="system">
+    <hardware>
+      <plugin>dynamixel_hardware/DynamixelHardware</plugin>
+      <param name="usb_port">/dev/ttyUSB0</param>
+      <param name="baud_rate">57600</param>
+    </hardware>
 
+    <joint name="Joint_wheel1">
+      <param name="id">2</param>
+      <!-- <command_interface name="position"/> -->
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Joint_wheel2">
+      <param name="id">3</param>
+      <!-- <command_interface name="position"/> -->
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Joint_wheel3">
+      <param name="id">4</param>
+      <!-- <command_interface name="position"/> -->
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Joint_wheel4">
+      <param name="id">1</param>
+      <!-- <command_interface name="position"/> -->
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+  </ros2_control>
 
 </robot>

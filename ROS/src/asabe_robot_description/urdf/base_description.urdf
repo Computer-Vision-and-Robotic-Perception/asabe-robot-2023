@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="asabe_robot_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.01912 0.0011886 0.0092468"
+        rpy="0 0 0" />
+      <mass
+        value="0.78986" />
+      <inertia
+        ixx="0.0020986"
+        ixy="-1.3798E-07"
+        ixz="-2.0391E-05"
+        iyy="0.0033408"
+        iyz="4.2971E-07"
+        izz="0.0053539" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="Link_wheel1"> <!--dynamixel id:2-->
+    <inertial>
+      <origin
+        xyz="4.1633E-17 -4.1633E-17 -0.0074545"
+        rpy="0 0 0" />
+      <mass
+        value="0.03913" />
+      <inertia
+        ixx="1.4554E-05"
+        ixy="-1.1471E-22"
+        ixz="-4.1333E-21"
+        iyy="1.4554E-05"
+        iyz="8.1676E-21"
+        izz="2.7117E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="Joint_wheel1"
+    type="continuous"> <!--dynamixel id:2-->
+    <origin
+      xyz="0.10075 -0.123 0.01425"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel1" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
+  <link
+    name="Link_wheel2"> <!--dynamixel id:3-->
+    <inertial>
+      <origin
+        xyz="1.3878E-17 4.8572E-17 -0.0074545"
+        rpy="0 0 0" />
+      <mass
+        value="0.03913" />
+      <inertia
+        ixx="1.4554E-05"
+        ixy="3.9294E-22"
+        ixz="-5.24E-22"
+        iyy="1.4554E-05"
+        iyz="-9.2404E-21"
+        izz="2.7117E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="Joint_wheel2"
+    type="continuous"> <!--dynamixel id:3-->
+    <origin
+      xyz="0.10075 0.123 0.01425"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel2" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
+  <link
+    name="Link_wheel3"> <!--dynamixel id:4-->
+    <inertial>
+      <origin
+        xyz="-1.3878E-17 5.2042E-17 -0.0074545"
+        rpy="0 0 0" />
+      <mass
+        value="0.03913" />
+      <inertia
+        ixx="1.4554E-05"
+        ixy="-1.7229E-25"
+        ixz="2.4714E-22"
+        iyy="1.4554E-05"
+        iyz="-9.2065E-21"
+        izz="2.7117E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="Joint_wheel3"
+    type="continuous"> <!--dynamixel id:4-->
+    <origin
+      xyz="-0.10075 0.123 0.01425"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel3" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
+  <link
+    name="Link_wheel4"> <!--dynamixel id:1-->
+    <inertial>
+      <origin
+        xyz="0 -5.2042E-17 -0.0074545"
+        rpy="0 0 0" />
+      <mass
+        value="0.03913" />
+      <inertia
+        ixx="1.4554E-05"
+        ixy="1.024E-23"
+        ixz="-2.8314E-21"
+        iyy="1.4554E-05"
+        iyz="9.2044E-21"
+        izz="2.7117E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_wheel4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_wheel4"
+    type="continuous"> <!--dynamixel id:1-->
+    <origin
+      xyz="-0.10075 -0.123 0.01425"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  
+
+  <ros2_control name="asabe_robot_description" type="system">
+    <hardware>
+      <plugin>dynamixel_hardware/DynamixelHardware</plugin>
+      <param name="usb_port">/dev/ttyUSB0</param>
+      <param name="baud_rate">57600</param>
+    </hardware>
+
+    <joint name="Joint_wheel1">
+      <param name="id">2</param>
+      <!-- <command_interface name="position"/> -->
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Joint_wheel2">
+      <param name="id">3</param>
+      <!-- <command_interface name="position"/> -->
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Joint_wheel3">
+      <param name="id">4</param>
+      <!-- <command_interface name="position"/> -->
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="Joint_wheel4">
+      <param name="id">1</param>
+      <!-- <command_interface name="position"/> -->
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+  </ros2_control>
+
+</robot>
