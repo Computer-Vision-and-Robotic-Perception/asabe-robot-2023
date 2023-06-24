@@ -10,10 +10,10 @@ void setup() {
 }
 
 void loop() {
-  if(mirror_serial.available()){
+  while(mirror_serial.available()){
     dynamixel_serial.write(mirror_serial.read());
   }
-  if(dynamixel_serial.available()){
-    mirror_serial.write(mirror_serial.read());
+  while(dynamixel_serial.available()){
+    mirror_serial.write(dynamixel_serial.read());
   }
 }
