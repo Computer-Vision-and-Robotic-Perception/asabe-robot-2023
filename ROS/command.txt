@@ -19,4 +19,26 @@ ros2 launch rplidar_ros view_rplidar_a1_launch.py
 
 
 ## Latest:
-ros2 topic pub /diff_drive_controller/cmd_vel geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 1, nanosec: 0}, frame_id: 1}, twist:{linear: {x: 0,y: 0,z: 0}, angular: {x: 0, y: 0, z: 0}}}"
+ros2 control switch_controllers --activate diff_drive_controller
+ros2 topic pub -1 /diff_drive_controller/cmd_vel geometry_msgs/msg/TwistStamped "{
+    header: {stamp: {sec: 0, nanosec: 0}, frame_id: 1}, 
+    twist:{
+        linear: {x: 10,y: 10,z: 0}, 
+        angular: {x: 0, y: 0, z: 0}
+    }
+}"
+
+ros2 control switch_controllers --activate joint_trajectory_controller
+ros2 action send_goal /joint_trajectory_controller/follow_joint_trajectory control_msgs/action/FollowJointTrajectory -f "{
+  trajectory: {
+    joint_names: [Joint_wheel1, Joint_wheel2, Joint_wheel3, Joint_wheel4],
+    points: [
+      { positions: [10, 10, 10, 10], time_from_start: { sec: 2 } },
+      { positions: [-0.1, -0.1, -0.1, -0.1], time_from_start: { sec: 4 } },
+      { positions: [0, 0, 0, 0], time_from_start: { sec: 6 } }
+    ]
+  }
+}"
+
+ros2 control switch_controllers --activate velocity_controller
+ros2 topic pub -1 /velocity_controller/commands std_msgs/msg/Float64MultiArray "data: [1, 1, 1, 1]"

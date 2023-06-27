@@ -282,7 +282,7 @@
 
     <joint name="Joint_wheel1">
       <param name="id">2</param>
-      <!-- <command_interface name="position"/> -->
+      <command_interface name="position"/>
       <command_interface name="velocity"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
@@ -291,7 +291,7 @@
 
     <joint name="Joint_wheel2">
       <param name="id">3</param>
-      <!-- <command_interface name="position"/> -->
+      <command_interface name="position"/>
       <command_interface name="velocity"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
@@ -300,7 +300,7 @@
 
     <joint name="Joint_wheel3">
       <param name="id">4</param>
-      <!-- <command_interface name="position"/> -->
+      <command_interface name="position"/>
       <command_interface name="velocity"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
@@ -309,7 +309,7 @@
 
     <joint name="Joint_wheel4">
       <param name="id">1</param>
-      <!-- <command_interface name="position"/> -->
+      <command_interface name="position"/>
       <command_interface name="velocity"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
