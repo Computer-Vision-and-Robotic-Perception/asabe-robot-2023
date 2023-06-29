@@ -253,6 +253,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="Joint_wheel4"
     type="continuous"> <!--dynamixel id:1-->

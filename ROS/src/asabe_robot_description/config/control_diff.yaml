@@ -41,8 +41,8 @@ diff_drive_controller:
     cmd_vel_timeout: 0.5              # seconds. Timeout after which input command on ``cmd_vel`` topic is considered staled.
     publish_limited_velocity: true    # Publish limited velocity value.
     velocity_rolling_window_size: 10  # Size of the rolling window for calculation of mean velocity use in odometry.
-    use_stamped_vel: false            # Use stamp from input velocity message to calculate how old the command actually is.
-    publish_rate: 50.0                # Hz. Publishing rate (Hz) of the odometry and TF messages.
+    use_stamped_vel: true             # Use stamp from input velocity message to calculate how old the command actually is.
+    publish_rate: 10.0                # Hz. Publishing rate (Hz) of the odometry and TF messages.
     linear:
       x:
         has_velocity_limits: false
