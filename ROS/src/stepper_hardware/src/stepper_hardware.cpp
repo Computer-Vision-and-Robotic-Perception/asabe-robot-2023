@@ -2,6 +2,8 @@
 
 #include "rclcpp/rclcpp.hpp"
 
+#include <iostream>
+
 namespace stepper_hardware
 {
 

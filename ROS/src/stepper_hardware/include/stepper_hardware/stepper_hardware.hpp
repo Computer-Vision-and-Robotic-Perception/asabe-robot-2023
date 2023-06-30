@@ -1,13 +1,7 @@
 #ifndef STEPPER_HARDWARE__STEPPER_HARDWARE_HPP_
 #define STEPPER_HARDWARE__STEPPER_HARDWARE_HPP_
 
-#include <hardware_interface/handle.hpp>
-#include <hardware_interface/hardware_info.hpp>
 #include <hardware_interface/system_interface.hpp>
-#include <rclcpp_lifecycle/state.hpp>
-
-#include <map>
-#include <vector>
 
 #include "stepper_hardware/visiblity_control.h"
 #include "rclcpp/macros.hpp"
@@ -61,9 +55,6 @@ public:
 
   STEPPER_HARDWARE_PUBLIC
   return_type write(const rclcpp::Time & time, const rclcpp::Duration & period) override;
-
-private:
-
 };
 }  // namespace stepper_hardware
 

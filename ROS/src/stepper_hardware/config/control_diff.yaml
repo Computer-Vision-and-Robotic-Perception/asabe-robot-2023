@@ -1,0 +1,67 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+
+diff_drive_controller:
+  ros__parameters:
+    right_wheel_names: ['Joint_wheel1', 'Joint_wheel4']  # Link names of the left side wheels
+    left_wheel_names: ['Joint_wheel2', 'Joint_wheel3']   # Link names of the right side wheels
+    wheel_separation: 0.26               # Shortest distance between the left and right wheels. If this parameter is wrong, the robot will not behave correctly in curves.
+    wheels_per_side: 2                   # Number of wheels on each wide of the robot. This is important to take the wheels slip into account when multiple wheels on each side are present. If there are more wheels then control signals for each side, you should enter number or control signals. For example, Husky has two wheels on each side, but they use one control signal, in this case '1' is the correct value of the parameter.
+    wheel_radius: 0.033                  # Radius of a wheel, i.e., wheels size, used for transformation of linear velocity into wheel rotations. If this parameter is wrong the robot will move faster or slower then expected.
+    wheel_separation_multiplier: 1.0     # Correction factor for wheel separation (TODO(destogl): Please help me describe this correctly)
+    left_wheel_radius_multiplier: 1.0    # Correction factor when radius of left wheels differs from the nominal value in ``wheel_radius`` parameter.
+    right_wheel_radius_multiplier: 1.0   # Correction factor when radius of right wheels differs from the nominal value in ``wheel_radius`` parameter.
+    odom_frame_id: odom                  # Name of the frame for odometry. This frame is parent of ``base_frame_id`` when controller publishes odometry.
+    base_frame_id: base_link             # Name of the robot's base frame that is child of the odometry frame.
+    pose_covariance_diagonal:            # Odometry covariance for the encoder output of the robot for the pose. These values should be tuned to your robot's sample odometry data, but these values are a good place to start: ``[0.001, 0.001, 0.001, 0.001, 0.001, 0.01]``.
+      - 0.001
+      - 0.001
+      - 0.001
+      - 0.001
+      - 0.001
+      - 0.01
+    wist_covariance_diagonal:         # Odometry covariance for the encoder output of the robot for the speed. These values should be tuned to your robot's sample odometry data, but these values are a good place to start: ``[0.001, 0.001, 0.001, 0.001, 0.001, 0.01]``.
+      - 0.001
+      - 0.001
+      - 0.001
+      - 0.001
+      - 0.001
+      - 0.01
+    open_loop: false                  # If set to true the odometry of the robot will be calculated from the commanded values and not from feedback.
+    position_feedback: true           # Is there position feedback from hardware.
+    enable_odom_tf: true              # Publish transformation between ``odom_frame_id`` and ``base_frame_id``
+    cmd_vel_timeout: 0.5              # seconds. Timeout after which input command on ``cmd_vel`` topic is considered staled.
+    publish_limited_velocity: true    # Publish limited velocity value.
+    velocity_rolling_window_size: 10  # Size of the rolling window for calculation of mean velocity use in odometry.
+    use_stamped_vel: true             # Use stamp from input velocity message to calculate how old the command actually is.
+    publish_rate: 10.0                # Hz. Publishing rate (Hz) of the odometry and TF messages.
+    linear:
+      x:
+        has_velocity_limits: false
+        has_acceleration_limits: false
+        has_jerk_limits: false
+        max_velocity: .NAN
+        min_velocity: .NAN
+        max_acceleration: .NAN
+        min_acceleration: .NAN
+        max_jerk: .NAN
+        min_jerk:  .NAN
+    angular:
+      z:
+        has_velocity_limits: false
+        has_acceleration_limits: false
+        has_jerk_limits: false
+        max_velocity: .NAN
+        min_velocity: .NAN
+        max_acceleration: .NAN
+        min_acceleration: .NAN
+        max_jerk: .NAN
+        min_jerk: .NAN
