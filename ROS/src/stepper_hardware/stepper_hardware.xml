@@ -1,0 +1,9 @@
+<library path="stepper_hardware">
+  <class name="stepper_hardware/StepperHardware"
+         type="stepper_hardware::StepperHardware"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Propietary implementation of Arduino AccelStepper to operate in ROS.
+    </description>
+  </class>
+</library>
