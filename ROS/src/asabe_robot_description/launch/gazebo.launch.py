@@ -12,8 +12,8 @@ from launch.substitutions import LaunchConfiguration
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     package_name = 'asabe_robot_description'
-    world_file_name = 'empty_world.world'
-    robot_name = 'robot_description_full.urdf'
+    world_file_name = 'competition_board.world'
+    robot_name = 'robot_description_base.urdf'
 
     world = os.path.join(get_package_share_directory(
         package_name), 'world', world_file_name)
@@ -25,7 +25,7 @@ def generate_launch_description():
 
     xml = xml.replace('"', '\\"')
 
-    swpan_args = '{name: \"asabe_robot\", xml: \"' + xml + '\" }'
+    swpan_args = '{name: \"asabe_robot\", xml: \"' + xml + '\", initial_pose:{position: {x: 0.15, y: -0.15, z: 0.05}}}'
 
     return LaunchDescription([
         ExecuteProcess(

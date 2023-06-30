@@ -9,7 +9,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
     urdf_tutorial_path = get_package_share_path('asabe_robot_description')
-    default_model_path = urdf_tutorial_path / 'urdf/robot_description_base.urdf'
+    default_model_path = urdf_tutorial_path / 'urdf/robot_description.urdf'
     default_rviz_config_path = urdf_tutorial_path / 'rviz/urdf.rviz'
     controller_config = urdf_tutorial_path / 'config/control_vel_trajectory.yaml' 
 

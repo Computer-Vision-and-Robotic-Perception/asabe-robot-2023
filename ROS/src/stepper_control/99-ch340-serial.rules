@@ -1,0 +1,8 @@
+#http://linux-tips.org/t/prevent-modem-manager-to-capture-usb-serial-devices/284/2.
+
+#cp src/stepper_control/99-ch340-serial.rules /etc/udev/rules.d/
+#sudo udevadm control --reload-rules
+#sudo udevadm trigger
+
+KERNEL=="ttyUSB*", DRIVERS=="ch341-uart", MODE="0666", ATTR{device/latency_timer}="1"
+
