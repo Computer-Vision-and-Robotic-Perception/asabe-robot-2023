@@ -15,7 +15,6 @@ struct JointValue
 {
   double position{0.0};
   double velocity{0.0};
-  double effort{0.0};
 };
 
 struct Joint
@@ -55,7 +54,11 @@ public:
 
   STEPPER_HARDWARE_PUBLIC
   return_type write(const rclcpp::Time & time, const rclcpp::Duration & period) override;
+
+private:
+  std::vector<Joint> joints_;
 };
+
 }  // namespace stepper_hardware
 
 #endif  // STEPPER_HARDWARE__STEPPER_HARDWARE_HPP_
