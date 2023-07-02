@@ -18,7 +18,7 @@ ros2 launch realsense2_camera rs_launch.py depth_module.profile:=1280x720x30 poi
 ros2 launch rplidar_ros view_rplidar_a1_launch.py
 
 
-## Latest:
+## Commands for the robot base control:
 ros2 control switch_controllers --activate diff_drive_controller
 ros2 topic pub --rate 3 /diff_drive_controller/cmd_vel geometry_msgs/msg/TwistStamped "{
     header: auto, 
@@ -47,5 +47,3 @@ ros2 action send_goal /joint_trajectory_controller/follow_joint_trajectory contr
 
 ros2 control switch_controllers --activate velocity_controller
 ros2 topic pub -1 /velocity_controller/commands std_msgs/msg/Float64MultiArray "data: [1, 1, 1, 1]"
-
-colcon build --symlink-install --packages-skip 
