@@ -1,5 +1,10 @@
+#include <HardwareSerial.h>
 #include <AccelStepper.h>
 #include <Servo.h>
+
+HardwareSerial& serial_control = Serial1;
+HardwareSerial& serial_report = Serial;
+HardwareSerial& serial_debug = Serial;
 
 // The Stepper0 pins (Base Rotation)
 #define STEPPER0_DIR_PIN 5
@@ -13,12 +18,14 @@
 // The Stepper3 pins (Second Linear Actuator)
 #define STEPPER3_DIR_PIN 13  
 #define STEPPER3_STP_PIN 12
+// The General Enable PIN
+#define STEPPERS_EN 8
 // The Servo0 pin
 #define SERVO0_PIN 10
 // The Servo1 pin
 #define SERVO1_PIN 11
 
-// Define the steppers and the pins the will use
+// Define the steppers and the pins the manipulator will use
 AccelStepper stepper0(AccelStepper::DRIVER, STEPPER0_STP_PIN, STEPPER0_DIR_PIN);
 AccelStepper stepper1(AccelStepper::DRIVER, STEPPER1_STP_PIN, STEPPER1_DIR_PIN);
 AccelStepper stepper2(AccelStepper::DRIVER, STEPPER2_STP_PIN, STEPPER2_DIR_PIN);
@@ -50,13 +57,13 @@ void measure()
 
 void echo()
 {
-  if(Serial.available())
+  if(serial_debug.available())
   {
-    char in = Serial.read();
+    char in = serial_debug.read();
     
     if(in == '\n')
     {
-      Serial.println(message);
+      serial_debug.println(message);
       message = String("");    
     }
     else
@@ -68,9 +75,9 @@ void echo()
 
 void update_setpoint()
 {
-  if(Serial.available())
+  if(serial_control.available())
   {
-    char in = Serial.read();
+    char in = serial_control.read();
     if(in >= '0' and in <= '9' or in=='-' or in==',' or in=='.')
     {
       message.concat(in);
@@ -87,7 +94,8 @@ void update_setpoint()
          ref[i] = message.substring(ind1, ind2).toFloat();
          ind1 = ind2 + 1;
       }
-      Serial.println(message);
+      serial_debug.print("Received command: ");
+      serial_debug.println(message);
       message = String("");    
     }
   }  
@@ -95,37 +103,37 @@ void update_setpoint()
 
 void report(bool positions=1, bool setpoint=1, bool velocity=1)
 {
-  if (millis() - m > 50)
+  if (millis() - m > 1000)
   {
     m = millis();
     if(positions)
     {
       for(byte i=0; i<6; i++)
       {
-        if(i>0) Serial.print(',');
-        Serial.print("P" + String(i) + ":");
-        Serial.print(pos[i]);
+        if(i>0) serial_report.print(',');
+        serial_report.print("P" + String(i) + ":");
+        serial_report.print(pos[i]);
       }
     }
     if(setpoint)
     {
       for(byte i=0; i<6; i++)
       {
-        if(i>0 or positions) Serial.print(',');
-        Serial.print("R" + String(i) + ":");
-        Serial.print(ref[i]);
+        if(i>0 or positions) serial_report.print(',');
+        serial_report.print("R" + String(i) + ":");
+        serial_report.print(ref[i]);
       }
     }
     if(velocity)
     {
       for(byte i=0; i<6; i++)
       {
-        if(i>0 or positions or setpoint) Serial.print(',');
-        Serial.print("V" + String(i) + ":");
-        Serial.print(vel[i]);
+        if(i>0 or positions or setpoint) serial_report.print(',');
+        serial_report.print("V" + String(i) + ":");
+        serial_report.print(vel[i]);
       }
     }
-    Serial.write('\n');
+    serial_report.write('\n');
   //ref[0] = 700.0*sin(millis()/1000.0);
   //ref[1] = 700.0*sin(millis()/1000.0);
   //ref[2] = 700.0*sin(millis()/1000.0);  
@@ -134,9 +142,12 @@ void report(bool positions=1, bool setpoint=1, bool velocity=1)
 
 void setup()
 {  
-    Serial.begin(2e6);
-    pinMode(8, OUTPUT);
-    digitalWrite(8, LOW);
+    Serial.begin(57600);
+    Serial1.begin(57600);
+    
+    pinMode(STEPPERS_EN, OUTPUT);
+    digitalWrite(STEPPERS_EN, LOW);
+    
     stepper0.setMaxSpeed(800.0);
     stepper0.setAcceleration(1600.0);
     stepper1.setMaxSpeed(800.0);
@@ -163,6 +174,6 @@ void loop()
     stepper3.run();
     measure();
     update_setpoint();
-    //echo();
+    echo();
     report(1,1,0);      //(positions, setpoints, velocity);
 }

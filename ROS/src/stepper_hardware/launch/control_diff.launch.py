@@ -8,7 +8,7 @@ from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
-    urdf_tutorial_path = get_package_share_path('asabe_robot_description')
+    urdf_tutorial_path = get_package_share_path('stepper_hardware')
     default_model_path = urdf_tutorial_path / 'urdf/robot_description.urdf'
     default_rviz_config_path = urdf_tutorial_path / 'rviz/urdf.rviz'
     controller_config = urdf_tutorial_path / 'config/control_diff.yaml' 
@@ -64,6 +64,6 @@ def generate_launch_description():
         controller_manager,
         joint_state_broadcaster,
         diff_drive_controller,
-        robot_state_publisher_node,
-        rviz_node
+        robot_state_publisher_node
+        # rviz_node
     ])

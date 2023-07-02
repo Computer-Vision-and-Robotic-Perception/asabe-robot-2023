@@ -17,6 +17,8 @@ add_library(
   ${PROJECT_NAME}
   SHARED
   src/stepper_hardware.cpp
+  src/port_handler.cpp
+  src/port_handler_linux.cpp
 )
 
 target_include_directories(

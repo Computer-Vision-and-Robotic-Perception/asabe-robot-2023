@@ -2,6 +2,9 @@
 #include "stepper_hardware/stepper_hardware.hpp"
 #include "rclcpp/rclcpp.hpp"
 
+#include "stepper_hardware/port_handler.h"
+#include "stepper_hardware/port_handler_linux.h"
+
 namespace stepper_hardware
 {
 
@@ -30,6 +33,10 @@ CallbackReturn StepperHardware::on_init(const hardware_interface::HardwareInfo &
   RCLCPP_INFO(rclcpp::get_logger("StepperHardware"), "baud_rate: %d", baud_rate);
 
   // TODO: initialize the serial port
+  port = PortHandler::getPortHandler(usb_port.c_str());
+  RCLCPP_INFO(rclcpp::get_logger("StepperHardware"), "serial: %s", port->getPortName());
+  RCLCPP_INFO(rclcpp::get_logger("StepperHardware"), "serial baud: %d", port->getBaudRate());
+  port->openPort();
   // TODO: check ping
 
   return CallbackReturn::SUCCESS;
@@ -91,6 +98,8 @@ return_type StepperHardware::read(const rclcpp::Time & /* time */, const rclcpp:
 return_type StepperHardware::write(const rclcpp::Time & /* time */, const rclcpp::Duration & /* period */)
 {
   // TODO: write commands to serial port
+  uint8_t msg[] = "100,100\n";
+  port->writePort(msg, sizeof(msg));
   return return_type::OK;
 }
 

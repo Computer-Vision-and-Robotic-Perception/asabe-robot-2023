@@ -22,7 +22,7 @@
 #include "stepper_hardware/port_handler.h"
 #include "stepper_hardware/port_handler_linux.h"
 
-using namespace serial;
+using namespace stepper_hardware;
 
 PortHandler *PortHandler::getPortHandler(const char *port_name)
 {

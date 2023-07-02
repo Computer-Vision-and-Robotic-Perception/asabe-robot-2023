@@ -6,6 +6,9 @@
 #include "stepper_hardware/visiblity_control.h"
 #include "rclcpp/macros.hpp"
 
+#include "stepper_hardware/port_handler.h"
+#include "stepper_hardware/port_handler_linux.h"
+
 using hardware_interface::CallbackReturn;
 using hardware_interface::return_type;
 
@@ -56,6 +59,7 @@ public:
   return_type write(const rclcpp::Time & time, const rclcpp::Duration & period) override;
 
 private:
+  PortHandler *port;
   std::vector<Joint> joints_;
 };
 
