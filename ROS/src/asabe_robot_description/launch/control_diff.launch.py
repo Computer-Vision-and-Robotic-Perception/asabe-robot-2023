@@ -50,6 +50,8 @@ def generate_launch_description():
         parameters=[{'robot_description': robot_description}]
     )
 
+    # Run from remote computer using
+    #   ros2 run rviz2 rviz2 -d src/asabe_robot_description/rviz/urdf.rviz
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',

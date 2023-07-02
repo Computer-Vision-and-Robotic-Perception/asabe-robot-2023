@@ -277,7 +277,7 @@
   <ros2_control name="asabe_robot_description" type="system">
     <hardware>
       <plugin>dynamixel_hardware/DynamixelHardware</plugin>
-      <param name="usb_port">/dev/ttyUSB0</param>
+      <param name="usb_port">/dev/ttyAMA1</param>
       <param name="baud_rate">57600</param>
     </hardware>
 

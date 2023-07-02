@@ -1,0 +1,21 @@
+dtoverlay -a | grep uart
+dtoverlay -h uart0
+dtoverlay -h uart1
+dtoverlay -h uart2
+dtoverlay -h uart3
+dtoverlay -h uart4
+dtoverlay -h uart5
+
+sudo gedit /boot/firmware/config.txt
+
+# dtoverlay=uart0,txd0_pin=14,rxd0=15 
+# dtoverlay=uart1,txd1_pin=32,rxd1=33
+dtoverlay=uart2#txd2_pin=0,rxd2=1 # /dev/ttyAMA1
+dtoverlay=uart3#txd3_pin=4,rxd3=5 # /dev/ttyAMA2
+dtoverlay=uart4#txd4_pin=8,rxd4=9 # /dev/ttyAMA3
+# dtoverlay=uart5#txd5_pin=12,rxd5=13
+
+sudo apt install raspi-config
+sudo raspi-config
+
+ls /sys/bus/usb-serial/drivers
