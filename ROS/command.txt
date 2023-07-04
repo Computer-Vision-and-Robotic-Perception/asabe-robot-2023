@@ -46,7 +46,7 @@ ros2 action send_goal /base_trajectory_controller/follow_joint_trajectory contro
 }"
 
 ros2 control switch_controllers --activate base_velocity_controller
-ros2 topic pub -1 /velocity_controller/commands std_msgs/msg/Float64MultiArray "data: [1, 1, 1, 1]"
+ros2 topic pub -1 /base_velocity_controller/commands std_msgs/msg/Float64MultiArray "data: [1, 1, 1, 1]"
 
 
 # Command for the arm control
@@ -58,6 +58,20 @@ ros2 action send_goal /arm_trajectory_controller/follow_joint_trajectory control
     points: [
       { positions: [0.9, 0.10, 0.4, 0.04], time_from_start: { sec: 3 } },
       { positions: [0.0, 0.00, 0.0, 0.00], time_from_start: { sec: 6 } }
+    ]
+  }
+}"
+
+ros2 action send_goal /arm_trajectory_controller/follow_joint_trajectory control_msgs/action/FollowJointTrajectory -f "{
+  trajectory: {
+    joint_names: [Joint_arm2, Joint_arm3, Joint_arm4, Joint_arm5],
+    points: [
+      { positions: [1.57, 0.05, 0.4, 0.00], time_from_start: { sec: 1 } },
+      { positions: [3.14, 0.10, 0.8, 0.00], time_from_start: { sec: 2 } },
+      { positions: [4.71, 0.15, 1.2, 0.00], time_from_start: { sec: 3 } },
+      { positions: [3.14, 0.10, 0.8, 0.00], time_from_start: { sec: 10 } },
+      { positions: [1.57, 0.05, 0.4, 0.00], time_from_start: { sec: 15 } },
+      { positions: [0.00, 0.00, 0.0, 0.00], time_from_start: { sec: 20 } },
     ]
   }
 }"
