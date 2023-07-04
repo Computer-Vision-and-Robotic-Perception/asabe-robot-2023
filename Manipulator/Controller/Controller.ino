@@ -48,8 +48,8 @@ float ref[6] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 float pos[6] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 float vel[6] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
-// stepper ratios: 400/pi)[steps/rad], 24[steps/m], 960/pi[steps/rad], 24[steps/m]
-const float ratios[6] = {98.0, -24000.0, -300.0, -24000.0}; 
+// stepper ratios: 400/pi[steps/rad], 24[steps/m], 960/pi[steps/rad], 24[steps/m]
+const float ratios[6] = {98.0, -24000.0, -305.6, -24000.0}; 
 
 void home()
 {
@@ -223,6 +223,7 @@ void setup()
 {  
     Serial.begin(57600);
     Serial1.begin(57600);
+    Serial1.begin(57600);
     
     pinMode(STEPPERS_EN, OUTPUT);
     digitalWrite(STEPPERS_EN, LOW);
@@ -232,11 +233,11 @@ void setup()
     pinMode(STEPPER2_END_PIN, INPUT_PULLUP);
     pinMode(STEPPER3_END_PIN, INPUT_PULLUP);
     
-    stepper0.setMaxSpeed(0.5 * ratios[0]);      //[m/s]
+    stepper0.setMaxSpeed(0.5 * ratios[0]);      //[rad/s]
     stepper0.setAcceleration(0.5 * ratios[0]);
     stepper1.setMaxSpeed(0.03 * ratios[1]);      //[m/s]
     stepper1.setAcceleration(0.03 * ratios[1]);
-    stepper2.setMaxSpeed(0.5 * ratios[2]);      //[m/s]
+    stepper2.setMaxSpeed(0.5 * ratios[2]);      //[rad/s]
     stepper2.setAcceleration(0.5 * ratios[2]);
     stepper3.setMaxSpeed(0.03 * ratios[3]);      //[m/s]
     stepper3.setAcceleration(0.03 * ratios[3]);

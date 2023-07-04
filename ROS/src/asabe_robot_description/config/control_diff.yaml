@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 100  # Hz
+    update_rate: 20  # Hz
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -45,22 +45,22 @@ diff_drive_controller:
     publish_rate: 10.0                # Hz. Publishing rate (Hz) of the odometry and TF messages.
     linear:
       x:
-        has_velocity_limits: false
+        has_velocity_limits: true
         has_acceleration_limits: false
         has_jerk_limits: false
-        max_velocity: .NAN
-        min_velocity: .NAN
+        max_velocity:  0.10  # 0.24
+        min_velocity: -0.10 # -0.24
         max_acceleration: .NAN
         min_acceleration: .NAN
         max_jerk: .NAN
-        min_jerk:  .NAN
+        min_jerk: .NAN
     angular:
       z:
-        has_velocity_limits: false
+        has_velocity_limits: true
         has_acceleration_limits: false
         has_jerk_limits: false
-        max_velocity: .NAN
-        min_velocity: .NAN
+        max_velocity:  0.50   # 1.8
+        min_velocity: -0.50  #-1.8
         max_acceleration: .NAN
         min_acceleration: .NAN
         max_jerk: .NAN

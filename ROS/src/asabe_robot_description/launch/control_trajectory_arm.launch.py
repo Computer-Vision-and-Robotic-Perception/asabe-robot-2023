@@ -8,10 +8,10 @@ from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
-    urdf_tutorial_path = get_package_share_path('stepper_hardware')
-    default_model_path = urdf_tutorial_path / 'urdf/robot_description.urdf'
+    urdf_tutorial_path = get_package_share_path('asabe_robot_description')
+    default_model_path = urdf_tutorial_path / 'urdf/robot_description_arm.urdf'
     default_rviz_config_path = urdf_tutorial_path / 'rviz/urdf.rviz'
-    controller_config = urdf_tutorial_path / 'config/control_diff.yaml' 
+    controller_config = urdf_tutorial_path / 'config/control_trajectory_arm.yaml' 
 
     model_arg = DeclareLaunchArgument(name='model', default_value=str(default_model_path),
                                       description='Absolute path to robot urdf file')
@@ -36,11 +36,11 @@ def generate_launch_description():
             arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
             output="screen",
         )
-
-    diff_drive_controller = Node(
+    
+    joint_trajectory_controller = Node(
             package="controller_manager",
             executable="spawner",
-            arguments=["diff_drive_controller", "-c", "/controller_manager"],
+            arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
             output="screen",
         )
 
@@ -63,7 +63,8 @@ def generate_launch_description():
         rviz_arg,
         controller_manager,
         joint_state_broadcaster,
-        diff_drive_controller,
+        joint_trajectory_controller,
         robot_state_publisher_node,
         rviz_node
     ])
+
