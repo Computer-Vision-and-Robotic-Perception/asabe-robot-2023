@@ -2,9 +2,9 @@
 #include <AccelStepper.h>
 #include <Servo.h>
 
-HardwareSerial& serial_control = Serial1;
-HardwareSerial& serial_report = Serial1;
-HardwareSerial& serial_debug = Serial;
+HardwareSerial& serial_control = Serial;
+HardwareSerial& serial_report = Serial;
+HardwareSerial& serial_debug = Serial1;
 
 // The Stepper0 pins (Base Rotation)
 #define STEPPER0_DIR_PIN 5

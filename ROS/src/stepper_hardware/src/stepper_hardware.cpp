@@ -77,8 +77,8 @@ CallbackReturn StepperHardware::on_activate(const rclcpp_lifecycle::State & /* p
   // TODO: set home position
 
   for (uint i = 0; i < info_.joints.size(); i++) {
-    joints_[i].state.position = 1.0;
-    joints_[i].state.velocity = 1.0;
+    joints_[i].state.position = 0.0;
+    joints_[i].state.velocity = 0.0;
     joints_[i].command.position = 0.0;
   }
 

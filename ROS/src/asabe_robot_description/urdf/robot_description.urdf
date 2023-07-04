@@ -6,6 +6,33 @@
   name="asabe_robot_description">
   <link
     name="base_link">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="base">
     <inertial>
       <origin
         xyz="0.01912 0.0011886 0.0092468"
@@ -44,6 +71,21 @@
       </geometry>
     </collision>
   </link>
+
+   <joint
+    name="Joint_base"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
 
   <link
     name="Link_wheel1"> <!--dynamixel id:2-->
@@ -266,15 +308,10 @@
       link="Link_wheel4" />
     <axis
       xyz="0 0 1" />
-    <limit
-      lower="0"
-      upper="0"
-      effort="0"
-      velocity="0" />
   </joint>
 
 
-  <ros2_control name="asabe_robot_description" type="system">
+  <ros2_control name="base_control" type="system">
     <hardware>
       <plugin>dynamixel_hardware/DynamixelHardware</plugin>
       <param name="usb_port">/dev/ttyUSB0</param>
@@ -323,8 +360,7 @@
 
   </ros2_control>
 
-
-  <!-- <link
+  <link
     name="Link_arm1">
     <inertial>
       <origin
@@ -372,7 +408,7 @@
       xyz="-0.084 0 0"
       rpy="0 0 0" />
     <parent
-      link="base_link" />
+      link="base" />
     <child
       link="Link_arm1" />
     <axis
@@ -435,9 +471,9 @@
       xyz="0 0 -1" />
     <limit
       lower="0"
-      upper="6.24"
-      effort="0"
-      velocity="0" />
+      upper="5.0"
+      velocity="0.5" 
+      effort="0"/>
   </joint>
 
 
@@ -496,9 +532,9 @@
       xyz="0 0 1" />
     <limit
       lower="0"
-      upper="0.15"
-      effort="0"
-      velocity="0" />
+      upper="0.18"
+      velocity="0.03" 
+      effort="0"/>
   </joint>
 
 
@@ -557,9 +593,9 @@
       xyz="0 0 1" />
     <limit
       lower="0"
-      upper="6.24"
+      upper="1.5708"
       effort="0"
-      velocity="0" />
+      velocity="0.5" />
   </joint>
 
 
@@ -620,7 +656,7 @@
       lower="0"
       upper="0.1"
       effort="0"
-      velocity="0" />
+      velocity="0.03" />
   </joint>
 
 
@@ -667,7 +703,7 @@
 
   <joint
     name="Joint_arm6"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="0.0094 0.0397 -0.12045"
       rpy="0 3.14159 3.14159" />
@@ -700,6 +736,43 @@
       link="grasp_point" />
     <axis
       xyz="0 0 0" />
-  </joint> -->
+  </joint>
+
+  <ros2_control name="arm_control" type="system">
+    <hardware>
+      <plugin>stepper_hardware/StepperHardware</plugin>
+      <param name="usb_port">/dev/ttyACM0</param>
+      <param name="baud_rate">57600</param>
+    </hardware>
+
+    <joint name="Joint_arm2">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>\
+    </joint>
+
+    <joint name="Joint_arm3">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>\
+    </joint>
+
+    <joint name="Joint_arm4">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="Joint_arm5">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+  </ros2_control>
 
 </robot>

@@ -19,8 +19,8 @@ ros2 launch rplidar_ros view_rplidar_a1_launch.py
 
 
 ## Commands for the robot base control:
-ros2 control switch_controllers --activate diff_drive_controller
-ros2 topic pub --rate 3 /diff_drive_controller/cmd_vel geometry_msgs/msg/TwistStamped "{
+ros2 control switch_controllers --activate base_diff_controller
+ros2 topic pub --rate 3 /base_diff_controller/cmd_vel geometry_msgs/msg/TwistStamped "{
     header: auto, 
     twist:{
         linear: {x: 0.1,y: 0,z: 0}, 
@@ -28,13 +28,13 @@ ros2 topic pub --rate 3 /diff_drive_controller/cmd_vel geometry_msgs/msg/TwistSt
     }
 }"
 
-ros2 topic pub --rate 2 /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist "{
+ros2 topic pub --rate 3 /base_diff_controller/cmd_vel_unstamped geometry_msgs/msg/Twist "{
   linear: {x: 0.1,y: 0,z: 0}, 
   angular: {x: 0, y: 0, z: 0}
 }"
 
-ros2 control switch_controllers --activate joint_trajectory_controller
-ros2 action send_goal /joint_trajectory_controller/follow_joint_trajectory control_msgs/action/FollowJointTrajectory -f "{
+ros2 control switch_controllers --activate base_trajectory_controller
+ros2 action send_goal /base_trajectory_controller/follow_joint_trajectory control_msgs/action/FollowJointTrajectory -f "{
   trajectory: {
     joint_names: [Joint_wheel1, Joint_wheel2, Joint_wheel3, Joint_wheel4],
     points: [
@@ -45,12 +45,14 @@ ros2 action send_goal /joint_trajectory_controller/follow_joint_trajectory contr
   }
 }"
 
-ros2 control switch_controllers --activate velocity_controller
+ros2 control switch_controllers --activate base_velocity_controller
 ros2 topic pub -1 /velocity_controller/commands std_msgs/msg/Float64MultiArray "data: [1, 1, 1, 1]"
+
 
 # Command for the arm control
 
-ros2 action send_goal /joint_trajectory_controller/follow_joint_trajectory control_msgs/action/FollowJointTrajectory -f "{
+ros2 control switch_controllers --activate arm_trajectory_controller
+ros2 action send_goal /arm_trajectory_controller/follow_joint_trajectory control_msgs/action/FollowJointTrajectory -f "{
   trajectory: {
     joint_names: [Joint_arm2, Joint_arm3, Joint_arm4, Joint_arm5],
     points: [

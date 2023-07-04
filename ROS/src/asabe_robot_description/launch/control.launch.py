@@ -9,9 +9,9 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
     urdf_tutorial_path = get_package_share_path('asabe_robot_description')
-    default_model_path = urdf_tutorial_path / 'urdf/robot_description_base.urdf'
+    default_model_path = urdf_tutorial_path / 'urdf/robot_description.urdf'
     default_rviz_config_path = urdf_tutorial_path / 'rviz/urdf.rviz'
-    controller_config = urdf_tutorial_path / 'config/control_vel_trajectory_base.yaml' 
+    controller_config = urdf_tutorial_path / 'config/control.yaml' 
 
     model_arg = DeclareLaunchArgument(name='model', default_value=str(default_model_path),
                                       description='Absolute path to robot urdf file')
@@ -37,17 +37,31 @@ def generate_launch_description():
             output="screen",
         )
     
-    velocity_controller = Node(
+    base_velocity_controller = Node(
             package="controller_manager",
             executable="spawner",
-            arguments=["velocity_controller", "-c", "/controller_manager"],
+            arguments=["base_velocity_controller", "-c", "/controller_manager"],
             output="screen",
         )
     
-    joint_trajectory_controller = Node(
+    base_trajectory_controller = Node(
             package="controller_manager",
             executable="spawner",
-            arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
+            arguments=["base_trajectory_controller", "-c", "/controller_manager"],
+            output="screen",
+        )
+
+    base_diff_controller = Node(
+            package="controller_manager",
+            executable="spawner",
+            arguments=["base_diff_controller", "-c", "/controller_manager"],
+            output="screen",
+        )
+    
+    arm_trajectory_controller = Node(
+            package="controller_manager",
+            executable="spawner",
+            arguments=["arm_trajectory_controller", "-c", "/controller_manager"],
             output="screen",
         )
 
@@ -70,8 +84,10 @@ def generate_launch_description():
         rviz_arg,
         controller_manager,
         joint_state_broadcaster,
-        velocity_controller,
-        joint_trajectory_controller,
+        base_velocity_controller,
+        base_trajectory_controller,
+        base_diff_controller,
+        arm_trajectory_controller,
         robot_state_publisher_node,
         rviz_node
     ])
