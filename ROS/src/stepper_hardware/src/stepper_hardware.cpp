@@ -29,14 +29,15 @@ CallbackReturn StepperHardware::on_init(const hardware_interface::HardwareInfo &
   auto usb_port = info_.hardware_parameters.at("usb_port");
   auto baud_rate = std::stoi(info_.hardware_parameters.at("baud_rate"));
 
-  RCLCPP_INFO(rclcpp::get_logger("StepperHardware"), "usb_port: %s", usb_port.c_str());
-  RCLCPP_INFO(rclcpp::get_logger("StepperHardware"), "baud_rate: %d", baud_rate);
+  // RCLCPP_INFO(rclcpp::get_logger("StepperHardware"), "usb_port: %s", usb_port.c_str());
+  // RCLCPP_INFO(rclcpp::get_logger("StepperHardware"), "baud_rate: %d", baud_rate);
 
-  // TODO: initialize the serial port
   port = PortHandler::getPortHandler(usb_port.c_str());
+  port->setBaudRate(baud_rate);
   RCLCPP_INFO(rclcpp::get_logger("StepperHardware"), "serial: %s", port->getPortName());
   RCLCPP_INFO(rclcpp::get_logger("StepperHardware"), "serial baud: %d", port->getBaudRate());
   port->openPort();
+  // TODO: check if open
   // TODO: check ping
 
   return CallbackReturn::SUCCESS;
@@ -76,8 +77,9 @@ CallbackReturn StepperHardware::on_activate(const rclcpp_lifecycle::State & /* p
   // TODO: set home position
 
   for (uint i = 0; i < info_.joints.size(); i++) {
-    joints_[i].state.position = 0.0;
-    joints_[i].state.velocity = 0.0;
+    joints_[i].state.position = 1.0;
+    joints_[i].state.velocity = 1.0;
+    joints_[i].command.position = 0.0;
   }
 
   return CallbackReturn::SUCCESS;
@@ -91,15 +93,60 @@ CallbackReturn StepperHardware::on_deactivate(const rclcpp_lifecycle::State & /*
 
 return_type StepperHardware::read(const rclcpp::Time & /* time */, const rclcpp::Duration & /* period */)
 {
-  // TODO: read states from serial port
+  // CAUTION: The ControllerManager needs to go faster than the arduino
+  while (port->getBytesAvailable() > 0) {
+    port->readPort(&buffer[available], 1);
+    if (buffer[available] == '\n' || buffer[available] == '\r' || buffer[available] == '\0') {
+      if (available > 1){
+        if (buffer[0] == 'P' && buffer[1] == '0') {
+          std::string buffer_str(reinterpret_cast<char*>(buffer), available);
+
+          // Split the string by commas
+          std::istringstream iss(buffer_str);
+          std::vector<std::string> tokens;
+          std::string token;
+          while (std::getline(iss, token, ',')) {
+            tokens.push_back(token);
+          }
+
+          for (const std::string& t : tokens) {
+            size_t colon_pos = t.find(':');
+            if (colon_pos != std::string::npos) {
+              std::string key = t.substr(0, colon_pos); // Extract key
+              std::string value = t.substr(colon_pos + 1); // Extract value
+              if (key == "P0"){joints_[0].state.position = std::stof(value);} 
+              if (key == "P1"){joints_[1].state.position = std::stof(value);}
+              if (key == "P2"){joints_[2].state.position = std::stof(value);}
+              if (key == "P3"){joints_[3].state.position = std::stof(value);}
+              if (key == "V0"){joints_[0].state.velocity = std::stof(value);}
+              if (key == "V1"){joints_[1].state.velocity = std::stof(value);}
+              if (key == "V2"){joints_[2].state.velocity = std::stof(value);}
+              if (key == "V3"){joints_[3].state.velocity = std::stof(value);}
+            }
+          }
+        }
+      }
+      available = 0;
+    }
+    else{available++;}
+  }
+
   return return_type::OK;
 }
 
 return_type StepperHardware::write(const rclcpp::Time & /* time */, const rclcpp::Duration & /* period */)
 {
-  // TODO: write commands to serial port
-  uint8_t msg[] = "100,100\n";
-  port->writePort(msg, sizeof(msg));
+  std::ostringstream msg_str;
+  msg_str << std::fixed << std::setprecision(3)
+          << joints_[0].command.position << ","
+          << joints_[1].command.position << ","
+          << joints_[2].command.position << ","
+          << joints_[3].command.position << "\n";
+
+  std::string msg = msg_str.str();
+  std::vector<uint8_t> msg_bytes(msg.begin(), msg.end());
+  port->writePort(msg_bytes.data(), msg_bytes.size());
+
   return return_type::OK;
 }
 

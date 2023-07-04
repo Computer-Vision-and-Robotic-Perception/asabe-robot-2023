@@ -64,6 +64,6 @@ def generate_launch_description():
         controller_manager,
         joint_state_broadcaster,
         diff_drive_controller,
-        robot_state_publisher_node
-        # rviz_node
+        robot_state_publisher_node,
+        rviz_node
     ])

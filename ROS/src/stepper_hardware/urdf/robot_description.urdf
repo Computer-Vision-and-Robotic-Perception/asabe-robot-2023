@@ -315,21 +315,6 @@
 
   </ros2_control>
 
-  <transmission name="wheel1_transmission">
-    <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="wheel1_motor">
-      <mechanicalReduction>-1.0</mechanicalReduction>
-    </actuator>
-    <joint name="Joint_wheel1">
-      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-    </joint>
-    <joint name="Joint_wheel1">
-      <hardwareInterface>hardware_interface/Position</hardwareInterface>
-    </joint>
-  </transmission>
-
-
-
   <!-- <link
     name="Link_arm1">
     <inertial>

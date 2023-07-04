@@ -60,6 +60,8 @@ public:
 
 private:
   PortHandler *port;
+  uint8_t buffer[1000];
+  int available = 0;
   std::vector<Joint> joints_;
 };
 
