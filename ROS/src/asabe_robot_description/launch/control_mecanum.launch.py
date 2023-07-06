@@ -89,6 +89,6 @@ def generate_launch_description():
         # base_diff_controller,
         # arm_trajectory_controller,
         robot_state_publisher_node,
-        rviz_node
+        # rviz_node
     ])
 

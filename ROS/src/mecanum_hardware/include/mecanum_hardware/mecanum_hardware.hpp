@@ -55,8 +55,6 @@ public:
 private:
   int fd;
   std::vector<Joint> joints_;
-  MSP_SET_MOTOR_t vel_command;
-  MSP_RAW_IMU_t imu_state;
 };
 }  // namespace mecanum_hardware
 

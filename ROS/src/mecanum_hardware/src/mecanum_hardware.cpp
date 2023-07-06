@@ -24,33 +24,15 @@ CallbackReturn MecanumHardware::on_init(const hardware_interface::HardwareInfo &
   }
 
   auto usb_port = info_.hardware_parameters.at("usb_port");
-  auto baud_rate = std::stoi(info_.hardware_parameters.at("baud_rate"));
-
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "usb_port: %s", usb_port.c_str());
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "baud_rate: %d", baud_rate);
 
   fd = serial_open(usb_port.c_str(), B115200);
   if (fd < 0) {
       RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "Error opening the port: %s", usb_port.c_str());
+      return CallbackReturn::ERROR;
   }
   else{
-    RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "Port: %s", usb_port.c_str());
+    RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "Port %s available", usb_port.c_str());
   }
-
-  MSP_RAW_IMU(fd, &imu_state);
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"accX: %d\n", imu_state.accX);
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"accY: %d\n", imu_state.accY);
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"accZ: %d\n", imu_state.accZ);
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"gyrX: %d\n", imu_state.gyrX);
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"gyrY: %d\n", imu_state.gyrY);
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"gyrZ: %d\n", imu_state.gyrZ);
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"magX: %d\n", imu_state.magX);
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"magY: %d\n", imu_state.magY);
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"magZ: %d\n", imu_state.magZ);
-
-  // TODO: check if open
-  // TODO: check ping
-
   return CallbackReturn::SUCCESS;
 }
 
@@ -100,7 +82,13 @@ CallbackReturn MecanumHardware::on_deactivate(const rclcpp_lifecycle::State & /*
 return_type MecanumHardware::read(const rclcpp::Time & /* time */, const rclcpp::Duration & /* period */)
 {
   // CAUTION: The ControllerManager needs to go faster than the arduino
+  MSP_RAW_IMU_t imu_state;
   MSP_RAW_IMU(fd, &imu_state);
+  fprintf(
+    stderr,
+    "accX%3d accY%3d accZ%3d gyrX%3d gyrY%3d gyrZ%3d magX%3d magY%3d magZ%3d\n",
+    imu_state.accX, imu_state.accY, imu_state.accZ, imu_state.gyrX, imu_state.gyrY, imu_state.gyrZ, imu_state.magX, imu_state.magY, imu_state.magZ
+  );
   for(int i = 0; i < int(joints_.size()); i++){
     joints_[i].state.velocity = joints_[i].command.velocity;
   }
@@ -109,11 +97,15 @@ return_type MecanumHardware::read(const rclcpp::Time & /* time */, const rclcpp:
 
 return_type MecanumHardware::write(const rclcpp::Time & /* time */, const rclcpp::Duration & /* period */)
 {
-  // 1400rmp/V, 12V, ratio 8:1, rad = 0.00635 mm = 1400 * (1/60) * 12 * (1/8) * 2 * pi
-  for(int i = 0; i < int(joints_.size()); i++){
-    vel_command.motor[i] = 1500 + uint16_t(joints_[i].command.velocity * 2.2727); // max: 220[rad/s] 
-  }
-  // MSP_SET_MOTOR(fd, &vel_command);
+  MSP_SET_MOTOR_t motors = {
+        .motor={
+          uint16_t(1500 + int(joints_[0].command.velocity * 100)),
+          uint16_t(1500 + int(joints_[1].command.velocity * 100)),
+          uint16_t(1500 + int(joints_[2].command.velocity * 100)),
+          uint16_t(1500 + int(joints_[3].command.velocity * 100))
+        }
+    };
+  MSP_SET_MOTOR(fd, &motors);
   return return_type::OK;
 }
 

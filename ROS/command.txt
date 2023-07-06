@@ -46,7 +46,7 @@ ros2 action send_goal /base_trajectory_controller/follow_joint_trajectory contro
 }"
 
 ros2 control switch_controllers --activate base_velocity_controller
-ros2 topic pub -1 /base_velocity_controller/commands std_msgs/msg/Float64MultiArray "data: [1, 1, 1, 1]"
+ros2 topic pub -1 /base_velocity_controller/commands std_msgs/msg/Float64MultiArray "data: [0.5, 0.5, 0.5, 0.5]"
 
 
 # Command for the arm control
