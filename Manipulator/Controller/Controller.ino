@@ -226,7 +226,7 @@ void setup()
     Serial1.begin(57600);
     
     pinMode(STEPPERS_EN, OUTPUT);
-    digitalWrite(STEPPERS_EN, LOW);
+    digitalWrite(STEPPERS_EN, HIGH);
 
     pinMode(STEPPER0_END_PIN, INPUT_PULLUP);
     pinMode(STEPPER1_END_PIN, INPUT_PULLUP);

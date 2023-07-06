@@ -2,6 +2,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+namespace mecanum_hardware
+{
 typedef struct MultiWiiPacket_s {
   uint8_t size;
   uint8_t code;
@@ -12,3 +14,4 @@ typedef struct MultiWiiPacket_s {
 
 void MultiWii_send(int, MultiWiiPacket_t *);
 void MultiWii_recv(int, MultiWiiPacket_t *);
+}

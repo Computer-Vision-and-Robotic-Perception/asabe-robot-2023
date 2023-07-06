@@ -16,10 +16,9 @@ find_package(pluginlib REQUIRED)
 add_library(
   ${PROJECT_NAME}
   SHARED
-  src/example_imu.c  
-  src/example_motor_run.c  
-  src/example_motor_stop.c  
-  # src/mecanum_hardware.cpp
+  src/mecanum_hardware.cpp
+  src/MultiWii.cpp
+  src/serial.cpp
 )
 
 target_include_directories(

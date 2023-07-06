@@ -2,8 +2,10 @@
 #include <fcntl.h> 
 #include <string.h>
 #include <stdio.h>
-#include "serial.h"
+#include "mecanum_hardware/serial.hpp"
 
+namespace mecanum_hardware
+{
 #define ERROR(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
 
 int set_interface_attribs(int fd, int speed, int parity) {
@@ -75,4 +77,5 @@ int serial_open(const char *port, int baud) {
   // set no blocking
   set_blocking(fd, 0);
   return fd;
+}
 }

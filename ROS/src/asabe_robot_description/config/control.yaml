@@ -71,7 +71,7 @@ base_diff_controller:
       - 0.01
     open_loop: false                  # If set to true the odometry of the robot will be calculated from the commanded values and not from feedback.
     position_feedback: true           # Is there position feedback from hardware.
-    enable_odom_tf: true              # Publish transformation between ``odom_frame_id`` and ``base_frame_id``
+    enable_odom_tf: false              # Publish transformation between ``odom_frame_id`` and ``base_frame_id``
     cmd_vel_timeout: 0.5              # seconds. Timeout after which input command on ``cmd_vel`` topic is considered staled.
     publish_limited_velocity: true    # Publish limited velocity value.
     velocity_rolling_window_size: 10  # Size of the rolling window for calculation of mean velocity use in odometry.

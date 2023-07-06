@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="mecanum_robot_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00017664 -1.3315E-17 0.0018814"
+        rpy="0 0 0" />
+      <mass
+        value="0.4974" />
+      <inertia
+        ixx="0.0019491"
+        ixy="-5.6199E-19"
+        ixz="-3.2892E-07"
+        iyy="0.0021231"
+        iyz="-5.0909E-21"
+        izz="0.004071" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/mecanum_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/mecanum_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link_wheel1">
+    <inertial>
+      <origin
+        xyz="-3.9606E-07 3.4085E-11 0.015498"
+        rpy="0 0 0" />
+      <mass
+        value="0.02942" />
+      <inertia
+        ixx="2.2418E-06"
+        ixy="8.3265E-16"
+        ixz="1.1018E-14"
+        iyy="2.2389E-06"
+        iyz="-5.937E-11"
+        izz="2.9693E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_mecanum_wheel1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_mecanum_wheel1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_wheel1"
+    type="continuous">
+    <origin
+      xyz="0.11289 -0.1085 4.3582E-05"
+      rpy="-1.5708 1.2025 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel1" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link_wheel2">
+    <inertial>
+      <origin
+        xyz="-3.9604E-07 -4.4486E-11 0.015498"
+        rpy="0 0 0" />
+      <mass
+        value="0.02942" />
+      <inertia
+        ixx="2.2418E-06"
+        ixy="3.4139E-16"
+        ixz="1.4464E-14"
+        iyy="2.2389E-06"
+        iyz="-5.9363E-11"
+        izz="2.9693E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_mecanum_wheel2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_mecanum_wheel2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_wheel2"
+    type="continuous">
+    <origin
+      xyz="0.113 0.1085 0"
+      rpy="1.5708 1.2025 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel2" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link_wheel3">
+    <inertial>
+      <origin
+        xyz="-3.9604E-07 -4.4486E-11 0.015498"
+        rpy="0 0 0" />
+      <mass
+        value="0.02942" />
+      <inertia
+        ixx="2.2418E-06"
+        ixy="3.4139E-16"
+        ixz="1.4464E-14"
+        iyy="2.2389E-06"
+        iyz="-5.9363E-11"
+        izz="2.9693E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_mecanum_wheel3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_mecanum_wheel3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_wheel3"
+    type="continuous">
+    <origin
+      xyz="-0.113 0.13949 0"
+      rpy="1.5708 1.2025 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel3" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link_wheel4">
+    <inertial>
+      <origin
+        xyz="-3.9604E-07 -4.4486E-11 0.015498"
+        rpy="0 0 0" />
+      <mass
+        value="0.02942" />
+      <inertia
+        ixx="2.2418E-06"
+        ixy="3.4139E-16"
+        ixz="1.4464E-14"
+        iyy="2.2389E-06"
+        iyz="-5.9363E-11"
+        izz="2.9693E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_mecanum_wheel4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://asabe_robot_description/meshes/Link_mecanum_wheel4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_wheel4"
+    type="continuous">
+    <origin
+      xyz="-0.113 -0.1085 0"
+      rpy="1.5708 1.2025 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_wheel4" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+  <link
+    name="Link_lidar">
+  </link>
+  <joint
+    name="Joint_lidar"
+    type="fixed">
+    <origin
+      xyz="0.113 0 -0.01"
+      rpy="3.1415926 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <ros2_control name="mecanum_control" type="system">
+    <hardware>
+      <plugin>mecanum_hardware/MecanumHardware</plugin>
+      <param name="usb_port">/dev/ttyACM0</param>
+      <param name="baud_rate">115200</param>
+    </hardware>
+
+    <joint name="Joint_wheel1">
+      <command_interface name="velocity"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="Joint_wheel2">
+      <command_interface name="velocity"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="Joint_wheel3">
+      <command_interface name="velocity"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="Joint_wheel4">
+      <command_interface name="velocity"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+  </ros2_control>
+
+</robot>

@@ -3,11 +3,11 @@
 
 #include <hardware_interface/system_interface.hpp>
 
-#include "mecanum_hardware/visiblity_control.h"
+#include "visiblity_control.h"
 #include "rclcpp/macros.hpp"
 
-#include "mecanum_hardware/port_handler.h"
-#include "mecanum_hardware/port_handler_linux.h"
+#include "MSP.hpp"
+#include "serial.hpp"
 
 using hardware_interface::CallbackReturn;
 using hardware_interface::return_type;
@@ -16,7 +16,6 @@ namespace mecanum_hardware
 {
 struct JointValue
 {
-  double position{0.0};
   double velocity{0.0};
 };
 
@@ -24,11 +23,6 @@ struct Joint
 {
   JointValue state{};
   JointValue command{};
-};
-
-enum class ControlMode {
-  Position,
-  Velocity,
 };
 
 class MecanumHardware
@@ -59,12 +53,11 @@ public:
   return_type write(const rclcpp::Time & time, const rclcpp::Duration & period) override;
 
 private:
-  PortHandler *port;
-  uint8_t buffer[1000];
-  int available = 0;
+  int fd;
   std::vector<Joint> joints_;
+  MSP_SET_MOTOR_t vel_command;
+  MSP_RAW_IMU_t imu_state;
 };
-
 }  // namespace mecanum_hardware
 
 #endif  // MECANUM_HARDWARE__MECANUM_HARDWARE_HPP_

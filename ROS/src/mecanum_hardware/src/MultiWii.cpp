@@ -3,8 +3,10 @@
 #include <stdint.h>
 #include <unistd.h>
 #include <string.h>
-#include "MultiWii.h"
+#include "mecanum_hardware/MultiWii.hpp"
 
+namespace mecanum_hardware
+{
 static const char
     preamble_send[] = "$M<",
     preamble_recv[] = "$M>";
@@ -43,7 +45,7 @@ void MultiWii_recv(int fd, MultiWiiPacket_t *packet) {
     read(fd, (void *)packet, 2);
     // Read rest of packet data and checksum
     ssize_t bytes_to_read = packet->size + 1;
-    uint8_t *data = malloc(bytes_to_read);
+    uint8_t* data = reinterpret_cast<uint8_t*>(malloc(bytes_to_read));
     do {
         ssize_t bytes = read(fd, data, bytes_to_read);
         if (bytes < 0) {
@@ -69,4 +71,5 @@ void MultiWii_recv(int fd, MultiWiiPacket_t *packet) {
     }
     // Free allocated memory
     free(data);
+}
 }

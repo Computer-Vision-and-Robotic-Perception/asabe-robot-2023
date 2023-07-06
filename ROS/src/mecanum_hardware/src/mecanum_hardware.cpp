@@ -2,8 +2,7 @@
 #include "mecanum_hardware/mecanum_hardware.hpp"
 #include "rclcpp/rclcpp.hpp"
 
-#include "mecanum_hardware/port_handler.h"
-#include "mecanum_hardware/port_handler_linux.h"
+#include "mecanum_hardware/serial.hpp"
 
 namespace mecanum_hardware
 {
@@ -19,9 +18,7 @@ CallbackReturn MecanumHardware::on_init(const hardware_interface::HardwareInfo &
   joints_.resize(info_.joints.size(), Joint());
   
   for (uint i = 0; i < info_.joints.size(); i++) {
-    joints_[i].state.position = std::numeric_limits<double>::quiet_NaN();
     joints_[i].state.velocity = std::numeric_limits<double>::quiet_NaN();
-    joints_[i].command.position = std::numeric_limits<double>::quiet_NaN();
     joints_[i].command.velocity = std::numeric_limits<double>::quiet_NaN();
     RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "joint %d", i);
   }
@@ -29,14 +26,28 @@ CallbackReturn MecanumHardware::on_init(const hardware_interface::HardwareInfo &
   auto usb_port = info_.hardware_parameters.at("usb_port");
   auto baud_rate = std::stoi(info_.hardware_parameters.at("baud_rate"));
 
-  // RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "usb_port: %s", usb_port.c_str());
-  // RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "baud_rate: %d", baud_rate);
+  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "usb_port: %s", usb_port.c_str());
+  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "baud_rate: %d", baud_rate);
 
-  port = PortHandler::getPortHandler(usb_port.c_str());
-  port->setBaudRate(baud_rate);
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "serial: %s", port->getPortName());
-  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "serial baud: %d", port->getBaudRate());
-  port->openPort();
+  fd = serial_open(usb_port.c_str(), B115200);
+  if (fd < 0) {
+      RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "Error opening the port: %s", usb_port.c_str());
+  }
+  else{
+    RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"), "Port: %s", usb_port.c_str());
+  }
+
+  MSP_RAW_IMU(fd, &imu_state);
+  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"accX: %d\n", imu_state.accX);
+  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"accY: %d\n", imu_state.accY);
+  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"accZ: %d\n", imu_state.accZ);
+  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"gyrX: %d\n", imu_state.gyrX);
+  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"gyrY: %d\n", imu_state.gyrY);
+  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"gyrZ: %d\n", imu_state.gyrZ);
+  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"magX: %d\n", imu_state.magX);
+  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"magY: %d\n", imu_state.magY);
+  RCLCPP_INFO(rclcpp::get_logger("MecanumHardware"),"magZ: %d\n", imu_state.magZ);
+
   // TODO: check if open
   // TODO: check ping
 
@@ -50,8 +61,6 @@ std::vector<hardware_interface::StateInterface> MecanumHardware::export_state_in
 
   for (uint i = 0; i < info_.joints.size(); i++) {
     state_interfaces.emplace_back(hardware_interface::StateInterface(
-      info_.joints[i].name, hardware_interface::HW_IF_POSITION, &joints_[i].state.position));
-    state_interfaces.emplace_back(hardware_interface::StateInterface(
       info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &joints_[i].state.velocity));
   }
   return state_interfaces;
@@ -62,8 +71,6 @@ std::vector<hardware_interface::CommandInterface> MecanumHardware::export_comman
   RCLCPP_DEBUG(rclcpp::get_logger("MecanumHardware"), "export_command_interfaces");
   std::vector<hardware_interface::CommandInterface> command_interfaces;
   for (uint i = 0; i < info_.joints.size(); i++) {
-    command_interfaces.emplace_back(hardware_interface::CommandInterface(
-      info_.joints[i].name, hardware_interface::HW_IF_POSITION, &joints_[i].command.position));
     command_interfaces.emplace_back(hardware_interface::CommandInterface(
       info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &joints_[i].command.velocity));
   }
@@ -77,9 +84,8 @@ CallbackReturn MecanumHardware::on_activate(const rclcpp_lifecycle::State & /* p
   // TODO: set home position
 
   for (uint i = 0; i < info_.joints.size(); i++) {
-    joints_[i].state.position = 0.0;
     joints_[i].state.velocity = 0.0;
-    joints_[i].command.position = 0.0;
+    joints_[i].command.velocity = 0.0;
   }
 
   return CallbackReturn::SUCCESS;
@@ -94,59 +100,20 @@ CallbackReturn MecanumHardware::on_deactivate(const rclcpp_lifecycle::State & /*
 return_type MecanumHardware::read(const rclcpp::Time & /* time */, const rclcpp::Duration & /* period */)
 {
   // CAUTION: The ControllerManager needs to go faster than the arduino
-  while (port->getBytesAvailable() > 0) {
-    port->readPort(&buffer[available], 1);
-    if (buffer[available] == '\n' || buffer[available] == '\r' || buffer[available] == '\0') {
-      if (available > 1){
-        if (buffer[0] == 'P' && buffer[1] == '0') {
-          std::string buffer_str(reinterpret_cast<char*>(buffer), available);
-
-          // Split the string by commas
-          std::istringstream iss(buffer_str);
-          std::vector<std::string> tokens;
-          std::string token;
-          while (std::getline(iss, token, ',')) {
-            tokens.push_back(token);
-          }
-
-          for (const std::string& t : tokens) {
-            size_t colon_pos = t.find(':');
-            if (colon_pos != std::string::npos) {
-              std::string key = t.substr(0, colon_pos); // Extract key
-              std::string value = t.substr(colon_pos + 1); // Extract value
-              if (key == "P0"){joints_[0].state.position = std::stof(value);} 
-              if (key == "P1"){joints_[1].state.position = std::stof(value);}
-              if (key == "P2"){joints_[2].state.position = std::stof(value);}
-              if (key == "P3"){joints_[3].state.position = std::stof(value);}
-              if (key == "V0"){joints_[0].state.velocity = std::stof(value);}
-              if (key == "V1"){joints_[1].state.velocity = std::stof(value);}
-              if (key == "V2"){joints_[2].state.velocity = std::stof(value);}
-              if (key == "V3"){joints_[3].state.velocity = std::stof(value);}
-            }
-          }
-        }
-      }
-      available = 0;
-    }
-    else{available++;}
+  MSP_RAW_IMU(fd, &imu_state);
+  for(int i = 0; i < int(joints_.size()); i++){
+    joints_[i].state.velocity = joints_[i].command.velocity;
   }
-
   return return_type::OK;
 }
 
 return_type MecanumHardware::write(const rclcpp::Time & /* time */, const rclcpp::Duration & /* period */)
 {
-  std::ostringstream msg_str;
-  msg_str << std::fixed << std::setprecision(3)
-          << joints_[0].command.position << ","
-          << joints_[1].command.position << ","
-          << joints_[2].command.position << ","
-          << joints_[3].command.position << "\n";
-
-  std::string msg = msg_str.str();
-  std::vector<uint8_t> msg_bytes(msg.begin(), msg.end());
-  port->writePort(msg_bytes.data(), msg_bytes.size());
-
+  // 1400rmp/V, 12V, ratio 8:1, rad = 0.00635 mm = 1400 * (1/60) * 12 * (1/8) * 2 * pi
+  for(int i = 0; i < int(joints_.size()); i++){
+    vel_command.motor[i] = 1500 + uint16_t(joints_[i].command.velocity * 2.2727); // max: 220[rad/s] 
+  }
+  // MSP_SET_MOTOR(fd, &vel_command);
   return return_type::OK;
 }
 

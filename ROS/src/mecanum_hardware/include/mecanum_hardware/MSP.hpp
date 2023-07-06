@@ -1,5 +1,5 @@
 #include <stdint.h>
-#include "MultiWii.h"
+#include "MultiWii.hpp"
 
 #ifndef __MSP_SEND__
 #define __MSP_SEND__(NAME, CODE) \
@@ -37,6 +37,8 @@ void MSP_##NAME(const int fd, MSP_##NAME##_t * const data) { \
 }
 #endif
 
+namespace mecanum_hardware
+{
 typedef struct MSP_IDENT_s {
   uint8_t VERSION;
   uint8_t MULTITYPE;
@@ -359,3 +361,5 @@ typedef struct MSP_EEPROM_WRITE_s {
 } MSP_EEPROM_WRITE_t;
 
 __MSP_SEND__(EEPROM_WRITE, 250);
+
+}
