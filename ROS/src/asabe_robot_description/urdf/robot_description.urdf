@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="asabe_robot_description">
   <link
@@ -23,13 +20,13 @@
   </link>
 
   <!-- Robot Footprint -->
-  <link name="base_footprint"/>
+  <!-- <link name="base_footprint"/>
 
   <joint name="base_joint" type="fixed">
     <parent link="base_link"/>
     <child link="base_footprint"/>
     <origin xyz="0.0 0.0 -0.01875" rpy="0 0 0"/>
-  </joint>
+  </joint> -->
 
 
   <link
@@ -312,10 +309,29 @@
   </joint>
 
 
+  <link
+    name="Link_lidar">
+  </link>
+  
+  <joint
+    name="Joint_lidar"
+    type="fixed">
+    <origin
+      xyz="0.109 0 0.0436"
+      rpy="0 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
   <ros2_control name="base_control" type="system">
     <hardware>
       <plugin>dynamixel_hardware/DynamixelHardware</plugin>
-      <param name="usb_port">/dev/ttyUSB0</param>
+      <param name="usb_port">/dev/ttyUSB2</param>
       <param name="baud_rate">57600</param>
     </hardware>
 
