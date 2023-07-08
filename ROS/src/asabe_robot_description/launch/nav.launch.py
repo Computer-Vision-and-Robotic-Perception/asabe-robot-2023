@@ -75,7 +75,7 @@ def generate_launch_description():
             PathJoinSubstitution([FindPackageShare('rplidar_ros'), 
                                   'launch', 'rplidar_a1_launch.py'])
         ]), launch_arguments={
-            'serial_port': '/dev/ttyUSB1',
+            'serial_port': '/dev/ttyUSB0',
             'frame_id': 'Link_lidar',
             'inverted': 'false',
         }.items()
@@ -106,13 +106,13 @@ def generate_launch_description():
         }.items(),
         )
 
-    rviz_node = Node(
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
-        output='both',
-        arguments=['-d', LaunchConfiguration('rvizconfig')],
-        )
+    # rviz_node = Node(
+    #     package='rviz2',
+    #     executable='rviz2',
+    #     name='rviz2',
+    #     output='both',
+    #     arguments=['-d', LaunchConfiguration('rvizconfig')],
+    #     )
 
     return LaunchDescription([
         model_arg,
@@ -126,5 +126,5 @@ def generate_launch_description():
         robot_localization_node,
         rplidar_node,
         nav2_launch,
-        rviz_node,
+        # rviz_node,
     ])

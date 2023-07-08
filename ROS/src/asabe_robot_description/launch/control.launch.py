@@ -71,13 +71,13 @@ def generate_launch_description():
         parameters=[{'robot_description': robot_description}]
     )
 
-    rviz_node = Node(
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
-        output='screen',
-        arguments=['-d', LaunchConfiguration('rvizconfig')],
-    )
+    # rviz_node = Node(
+    #     package='rviz2',
+    #     executable='rviz2',
+    #     name='rviz2',
+    #     output='screen',
+    #     arguments=['-d', LaunchConfiguration('rvizconfig')],
+    # )
 
     return LaunchDescription([
         model_arg,
@@ -89,6 +89,6 @@ def generate_launch_description():
         base_diff_controller,
         arm_trajectory_controller,
         robot_state_publisher_node,
-        rviz_node
+        # rviz_node
     ])
 

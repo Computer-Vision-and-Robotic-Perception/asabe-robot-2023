@@ -331,7 +331,7 @@
   <ros2_control name="base_control" type="system">
     <hardware>
       <plugin>dynamixel_hardware/DynamixelHardware</plugin>
-      <param name="usb_port">/dev/ttyUSB2</param>
+      <param name="usb_port">/dev/ttyAMA2</param>
       <param name="baud_rate">57600</param>
     </hardware>
 
@@ -758,7 +758,7 @@
   <ros2_control name="arm_control" type="system">
     <hardware>
       <plugin>stepper_hardware/StepperHardware</plugin>
-      <param name="usb_port">/dev/ttyACM0</param>
+      <param name="usb_port">/dev/ttyAMA1</param>
       <param name="baud_rate">57600</param>
     </hardware>
 

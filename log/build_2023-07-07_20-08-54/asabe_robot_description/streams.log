@@ -1,0 +1,155 @@
+[0.150s] Invoking command in '/home/asabe/Documents/asabe-robot-2023/build/asabe_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/asabe/Documents/asabe-robot-2023/ROS/src/asabe_robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description
+[1.188s] -- The C compiler identification is GNU 11.3.0
+[2.015s] -- The CXX compiler identification is GNU 11.3.0
+[2.081s] -- Detecting C compiler ABI info
+[2.708s] -- Detecting C compiler ABI info - done
+[2.739s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.744s] -- Detecting C compile features
+[2.748s] -- Detecting C compile features - done
+[2.777s] -- Detecting CXX compiler ABI info
+[3.402s] -- Detecting CXX compiler ABI info - done
+[3.444s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.446s] -- Detecting CXX compile features
+[3.448s] -- Detecting CXX compile features - done
+[3.518s] -- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)
+[4.613s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter 
+[4.985s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[5.737s] -- Found urdf: 2.6.0 (/opt/ros/humble/share/urdf/cmake)
+[6.731s] -- Found ament_lint_auto: 0.12.6 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[7.123s] -- Configuring done
+[7.150s] -- Generating done
+[7.155s] -- Build files have been written to: /home/asabe/Documents/asabe-robot-2023/build/asabe_robot_description
+[7.186s] Invoked command in '/home/asabe/Documents/asabe-robot-2023/build/asabe_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/asabe/Documents/asabe-robot-2023/ROS/src/asabe_robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description
+[7.202s] Invoking command in '/home/asabe/Documents/asabe-robot-2023/build/asabe_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/asabe/Documents/asabe-robot-2023/build/asabe_robot_description -- -j4 -l4
+[7.440s] Invoked command in '/home/asabe/Documents/asabe-robot-2023/build/asabe_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/asabe/Documents/asabe-robot-2023/build/asabe_robot_description -- -j4 -l4
+[7.689s] Invoking command in '/home/asabe/Documents/asabe-robot-2023/build/asabe_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/asabe/Documents/asabe-robot-2023/build/asabe_robot_description
+[7.738s] -- Install configuration: ""
+[7.740s] -- Execute custom install script
+[7.749s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./CMakeLists.txt
+[7.804s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./config/control.yaml
+[7.850s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./config/ekf.yaml
+[7.905s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./config/nav.yaml
+[7.949s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./export.log
+[8.007s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./launch/control.launch.py
+[8.053s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./launch/control_mecanum.launch.py
+[8.108s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./launch/display.launch.py
+[8.155s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./launch/display_mecanum.launch.py
+[8.217s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./launch/gazebo.launch.py
+[8.272s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./launch/loc.launch.py
+[8.334s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./launch/localization_launch.py
+[8.388s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./launch/nav.launch.py
+[8.450s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./launch/nav2_bringup_launch.py
+[8.506s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./launch/navigation_launch.py
+[8.563s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./launch/slam_launch.py
+[8.632s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./maps/cotton_map.pgm
+[8.701s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./maps/cotton_map.yaml
+[8.755s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./maps/map.pgm
+[8.811s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./maps/map.yaml
+[8.855s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_arm1.STL
+[8.912s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_arm2.STL
+[8.959s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_arm3.STL
+[9.013s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_arm4.STL
+[9.057s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_arm5.STL
+[9.113s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_arm6.STL
+[9.159s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_mecanum_wheel1.STL
+[9.213s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_mecanum_wheel2.STL
+[9.257s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_mecanum_wheel3.STL
+[9.313s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_mecanum_wheel4.STL
+[9.360s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_wheel1.STL
+[9.421s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_wheel2.STL
+[9.465s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_wheel3.STL
+[9.520s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/Link_wheel4.STL
+[9.567s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/base_link.STL
+[9.618s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./meshes/mecanum_base_link.STL
+[9.665s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./package.xml
+[9.720s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./rviz/nav.rviz
+[9.768s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./rviz/urdf.rviz
+[9.819s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./textures/none.txt
+[9.866s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./urdf/mecanum_robot_description.urdf
+[9.919s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./urdf/robot_description.urdf
+[9.965s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./urdf/robot_description_arm.urdf
+[10.019s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./urdf/robot_description_base.urdf
+[10.065s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/competition_board.world
+[10.119s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/empty_world.world
+[10.165s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/models/Link_board.STL
+[10.220s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/models/competition_board/mesh/competition_board.stl
+[10.267s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/models/competition_board/mesh/competition_board1.stl
+[10.320s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/models/competition_board/model.config
+[10.365s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/models/competition_board/model.sdf
+[10.424s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/models/ripe_ball/mesh/ripe_ball.STL
+[10.473s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/models/ripe_ball/model.config
+[10.536s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/models/ripe_ball/model.sdf
+[10.589s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/models/unripe_ball/mesh/unripe_ball.STL
+[10.654s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/models/unripe_ball/model.config
+[10.709s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/./world/models/unripe_ball/model.sdf
+[10.765s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/launch/control.launch.py
+[10.767s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/launch/control_mecanum.launch.py
+[10.767s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/launch/display.launch.py
+[10.768s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/launch/display_mecanum.launch.py
+[10.769s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/launch/gazebo.launch.py
+[10.770s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/launch/loc.launch.py
+[10.772s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/launch/localization_launch.py
+[10.773s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/launch/nav.launch.py
+[10.774s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/launch/nav2_bringup_launch.py
+[10.775s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/launch/navigation_launch.py
+[10.776s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/launch/slam_launch.py
+[10.777s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/rviz/nav.rviz
+[10.778s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/rviz/urdf.rviz
+[10.780s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/config/control.yaml
+[10.781s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/config/ekf.yaml
+[10.783s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/config/nav.yaml
+[10.785s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_arm1.STL
+[10.787s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_arm2.STL
+[10.790s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_arm3.STL
+[10.792s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_arm4.STL
+[10.793s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_arm5.STL
+[10.794s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_arm6.STL
+[10.796s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_mecanum_wheel1.STL
+[10.797s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_mecanum_wheel2.STL
+[10.798s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_mecanum_wheel3.STL
+[10.800s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_mecanum_wheel4.STL
+[10.801s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_wheel1.STL
+[10.802s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_wheel2.STL
+[10.804s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_wheel3.STL
+[10.805s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/Link_wheel4.STL
+[10.809s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/base_link.STL
+[10.812s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/meshes/mecanum_base_link.STL
+[10.814s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/urdf/mecanum_robot_description.urdf
+[10.815s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/urdf/robot_description.urdf
+[10.817s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/urdf/robot_description_arm.urdf
+[10.818s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/urdf/robot_description_base.urdf
+[10.819s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/textures/none.txt
+[10.825s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/competition_board.world
+[10.827s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/empty_world.world
+[10.831s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/models/Link_board.STL
+[10.833s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/models/competition_board/mesh/competition_board.stl
+[10.853s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/models/competition_board/mesh/competition_board1.stl
+[10.854s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/models/competition_board/model.config
+[10.855s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/models/competition_board/model.sdf
+[10.856s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/models/ripe_ball/mesh/ripe_ball.STL
+[10.858s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/models/ripe_ball/model.config
+[10.860s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/models/ripe_ball/model.sdf
+[10.861s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/models/unripe_ball/mesh/unripe_ball.STL
+[10.863s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/models/unripe_ball/model.config
+[10.864s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/world/models/unripe_ball/model.sdf
+[10.865s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/maps/cotton_map.pgm
+[10.867s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/maps/cotton_map.yaml
+[10.868s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/maps/map.pgm
+[10.870s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/maps/map.yaml
+[10.873s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/ament_index/resource_index/package_run_dependencies/asabe_robot_description
+[10.937s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/ament_index/resource_index/parent_prefix_path/asabe_robot_description
+[10.992s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/environment/ament_prefix_path.sh
+[11.048s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/environment/ament_prefix_path.dsv
+[11.118s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/environment/path.sh
+[11.183s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/environment/path.dsv
+[11.248s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/local_setup.bash
+[11.311s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/local_setup.sh
+[11.358s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/local_setup.zsh
+[11.417s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/local_setup.dsv
+[11.463s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/package.dsv
+[11.520s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/ament_index/resource_index/packages/asabe_robot_description
+[11.569s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/cmake/ament_cmake_export_dependencies-extras.cmake
+[11.638s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/cmake/asabe_robot_descriptionConfig.cmake
+[11.692s] -- Symlinking: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/cmake/asabe_robot_descriptionConfig-version.cmake
+[11.743s] -- Up-to-date symlink: /home/asabe/Documents/asabe-robot-2023/install/asabe_robot_description/share/asabe_robot_description/package.xml
+[11.752s] Invoked command in '/home/asabe/Documents/asabe-robot-2023/build/asabe_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/asabe/Documents/asabe-robot-2023/build/asabe_robot_description

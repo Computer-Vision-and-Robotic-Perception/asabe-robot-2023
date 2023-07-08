@@ -1,0 +1,4 @@
+source;share/asabe_robot_description/local_setup.bash
+source;share/asabe_robot_description/local_setup.dsv
+source;share/asabe_robot_description/local_setup.sh
+source;share/asabe_robot_description/local_setup.zsh

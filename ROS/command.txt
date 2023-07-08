@@ -79,10 +79,10 @@ ros2 action send_goal /arm_trajectory_controller/follow_joint_trajectory control
 
 ## Navigation
 
-ros2 topic pub --rate 3 /goal_pose geometry_msgs/msg/PoseStamped "{
+ros2 topic pub -1 /goal_pose geometry_msgs/msg/PoseStamped "{
     header: auto, 
     pose:{
-        position: {x: 0.0,y: 0.0,z: 0}, 
+        position: {x: -0.5,y: 0.0,z: 0}, 
         orientation: {x: 0, y: 0, z: 0, w: 1}
     }
 }"
