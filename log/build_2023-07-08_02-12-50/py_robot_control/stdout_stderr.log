@@ -1,0 +1,32 @@
+running develop
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.16.0-unknown is an invalid version and will not be supported in a future release
+  warnings.warn(
+/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.1build1 is an invalid version and will not be supported in a future release
+  warnings.warn(
+/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 0.1.43ubuntu1 is an invalid version and will not be supported in a future release
+  warnings.warn(
+running egg_info
+creating py_robot_control.egg-info
+writing py_robot_control.egg-info/PKG-INFO
+writing dependency_links to py_robot_control.egg-info/dependency_links.txt
+writing entry points to py_robot_control.egg-info/entry_points.txt
+writing requirements to py_robot_control.egg-info/requires.txt
+writing top-level names to py_robot_control.egg-info/top_level.txt
+writing manifest file 'py_robot_control.egg-info/SOURCES.txt'
+reading manifest file 'py_robot_control.egg-info/SOURCES.txt'
+writing manifest file 'py_robot_control.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/lib/python3.10/site-packages/py-robot-control.egg-link (link to .)
+Installing control_move script to /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/lib/py_pubsub
+
+Installed /home/asabe/Documents/asabe-robot-2023/build/py_robot_control
+running install_data
+creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index
+creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index/resource_index
+creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index/resource_index/packages
+copying resource/py_robot_control -> /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index/resource_index/packages
+copying package.xml -> /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/py_robot_control

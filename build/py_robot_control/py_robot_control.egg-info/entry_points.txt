@@ -1,0 +1,3 @@
+[console_scripts]
+control_move = py_robot_control.control_move:main
+

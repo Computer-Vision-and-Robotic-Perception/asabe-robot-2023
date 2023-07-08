@@ -1,4 +1,10 @@
-### RealSense
+### RealSenseros2 topic pub --rate 3 /base_diff_controller/cmd_vros2 topic pub --rate 3 /base_diff_controller/cmd_vel_unstamped geometry_msgs/msg/Twist "{
+  linear: {x: 0.1,y: 0,z: 0}, 
+  angular: {x: 0, y: 0, z: 0}
+}"el_unstamped geometry_msgs/msg/Twist "{
+  linear: {x: 0.1,y: 0,z: 0}, 
+  angular: {x: 0, y: 0, z: 0}
+}"
 # From: https://github.com/IntelRealSense/realsense-ros
 
 # Start the camera node with ros2 run:
@@ -86,3 +92,6 @@ ros2 topic pub -1 /goal_pose geometry_msgs/msg/PoseStamped "{
         orientation: {x: 0, y: 0, z: 0, w: 1}
     }
 }"
+
+# control robot with keyboard
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=/base_diff_controller/cmd_vel_unstamped

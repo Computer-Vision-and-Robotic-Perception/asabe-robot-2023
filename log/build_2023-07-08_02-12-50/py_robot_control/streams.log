@@ -1,0 +1,34 @@
+[4.107s] Invoking command in '/home/asabe/Documents/asabe-robot-2023/build/py_robot_control': PYTHONPATH=/home/asabe/Documents/asabe-robot-2023/build/py_robot_control/prefix_override:/home/asabe/Documents/asabe-robot-2023/install/py_robot_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/asabe/Documents/asabe-robot-2023/build/py_robot_control/build --no-deps install_data
+[5.574s] running develop
+[5.579s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[5.580s]   warnings.warn(
+[5.586s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[5.586s]   warnings.warn(
+[5.969s] /usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.16.0-unknown is an invalid version and will not be supported in a future release
+[5.970s]   warnings.warn(
+[5.971s] /usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.1build1 is an invalid version and will not be supported in a future release
+[5.972s]   warnings.warn(
+[5.973s] /usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 0.1.43ubuntu1 is an invalid version and will not be supported in a future release
+[5.973s]   warnings.warn(
+[6.606s] running egg_info
+[6.607s] creating py_robot_control.egg-info
+[6.607s] writing py_robot_control.egg-info/PKG-INFO
+[6.608s] writing dependency_links to py_robot_control.egg-info/dependency_links.txt
+[6.609s] writing entry points to py_robot_control.egg-info/entry_points.txt
+[6.610s] writing requirements to py_robot_control.egg-info/requires.txt
+[6.610s] writing top-level names to py_robot_control.egg-info/top_level.txt
+[6.611s] writing manifest file 'py_robot_control.egg-info/SOURCES.txt'
+[6.618s] reading manifest file 'py_robot_control.egg-info/SOURCES.txt'
+[6.621s] writing manifest file 'py_robot_control.egg-info/SOURCES.txt'
+[6.628s] running build_ext
+[6.629s] Creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/lib/python3.10/site-packages/py-robot-control.egg-link (link to .)
+[6.634s] Installing control_move script to /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/lib/py_pubsub
+[6.637s] 
+[6.639s] Installed /home/asabe/Documents/asabe-robot-2023/build/py_robot_control
+[6.646s] running install_data
+[6.650s] creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index
+[6.655s] creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index/resource_index
+[6.658s] creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index/resource_index/packages
+[6.662s] copying resource/py_robot_control -> /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index/resource_index/packages
+[6.664s] copying package.xml -> /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/py_robot_control
+[6.832s] Invoked command in '/home/asabe/Documents/asabe-robot-2023/build/py_robot_control' returned '0': PYTHONPATH=/home/asabe/Documents/asabe-robot-2023/build/py_robot_control/prefix_override:/home/asabe/Documents/asabe-robot-2023/install/py_robot_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/asabe/Documents/asabe-robot-2023/build/py_robot_control/build --no-deps install_data

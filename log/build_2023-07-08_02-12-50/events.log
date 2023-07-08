@@ -1,0 +1,125 @@
+[0.000000] (-) TimerEvent: {}
+[0.001306] (-) JobUnselected: {'identifier': 'Douglas_Peucker_Algorithm'}
+[0.009659] (-) JobUnselected: {'identifier': 'Lidar'}
+[0.015461] (-) JobUnselected: {'identifier': 'asabe_robot_description'}
+[0.019341] (-) JobUnselected: {'identifier': 'dynamixel_hardware'}
+[0.019603] (-) JobUnselected: {'identifier': 'dynamixel_sdk'}
+[0.019869] (-) JobUnselected: {'identifier': 'dynamixel_sdk_custom_interfaces'}
+[0.020066] (-) JobUnselected: {'identifier': 'dynamixel_sdk_examples'}
+[0.020271] (-) JobUnselected: {'identifier': 'dynamixel_workbench'}
+[0.020437] (-) JobUnselected: {'identifier': 'dynamixel_workbench_msgs'}
+[0.020557] (-) JobUnselected: {'identifier': 'dynamixel_workbench_toolbox'}
+[0.020656] (-) JobUnselected: {'identifier': 'mecanum_hardware'}
+[0.020796] (-) JobUnselected: {'identifier': 'open_manipulator_x_description'}
+[0.021003] (-) JobUnselected: {'identifier': 'pantilt_bot_description'}
+[0.021649] (-) JobUnselected: {'identifier': 'realsense2_camera'}
+[0.022033] (-) JobUnselected: {'identifier': 'realsense2_camera_msgs'}
+[0.022407] (-) JobUnselected: {'identifier': 'realsense2_description'}
+[0.022690] (-) JobUnselected: {'identifier': 'rplidar_ros'}
+[0.022941] (-) JobUnselected: {'identifier': 'stepper_hardware'}
+[0.023201] (py_robot_control) JobQueued: {'identifier': 'py_robot_control', 'dependencies': OrderedDict()}
+[0.025079] (py_robot_control) JobStarted: {'identifier': 'py_robot_control'}
+[0.099532] (-) TimerEvent: {}
+[0.200561] (-) TimerEvent: {}
+[0.301293] (-) TimerEvent: {}
+[0.402015] (-) TimerEvent: {}
+[0.502807] (-) TimerEvent: {}
+[0.603565] (-) TimerEvent: {}
+[0.704300] (-) TimerEvent: {}
+[0.804994] (-) TimerEvent: {}
+[0.905868] (-) TimerEvent: {}
+[1.006927] (-) TimerEvent: {}
+[1.108264] (-) TimerEvent: {}
+[1.209160] (-) TimerEvent: {}
+[1.309809] (-) TimerEvent: {}
+[1.410565] (-) TimerEvent: {}
+[1.511326] (-) TimerEvent: {}
+[1.612125] (-) TimerEvent: {}
+[1.713009] (-) TimerEvent: {}
+[1.814181] (-) TimerEvent: {}
+[1.914968] (-) TimerEvent: {}
+[2.015734] (-) TimerEvent: {}
+[2.116481] (-) TimerEvent: {}
+[2.217207] (-) TimerEvent: {}
+[2.317956] (-) TimerEvent: {}
+[2.418717] (-) TimerEvent: {}
+[2.519473] (-) TimerEvent: {}
+[2.620280] (-) TimerEvent: {}
+[2.721011] (-) TimerEvent: {}
+[2.821656] (-) TimerEvent: {}
+[2.922402] (-) TimerEvent: {}
+[3.023350] (-) TimerEvent: {}
+[3.124132] (-) TimerEvent: {}
+[3.224878] (-) TimerEvent: {}
+[3.325613] (-) TimerEvent: {}
+[3.426571] (-) TimerEvent: {}
+[3.527409] (-) TimerEvent: {}
+[3.628122] (-) TimerEvent: {}
+[3.728791] (-) TimerEvent: {}
+[3.829628] (-) TimerEvent: {}
+[3.930989] (-) TimerEvent: {}
+[4.032392] (-) TimerEvent: {}
+[4.119472] (py_robot_control) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'develop', '--editable', '--build-directory', '/home/asabe/Documents/asabe-robot-2023/build/py_robot_control/build', '--no-deps', 'install_data'], 'cwd': '/home/asabe/Documents/asabe-robot-2023/build/py_robot_control', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', '_root': '/opt/ros/humble/', 'USER': 'asabe', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/asabe/Documents/asabe-robot-2023/ROS/install/stepper_hardware/lib:/home/asabe/Documents/asabe-robot-2023/ROS/install/realsense2_camera/lib:/home/asabe/Documents/asabe-robot-2023/ROS/install/realsense2_camera_msgs/lib:/home/asabe/Documents/asabe-robot-2023/ROS/install/mecanum_hardware/lib:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_hardware/lib:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_workbench_toolbox/lib:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_workbench_msgs/lib:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_sdk_custom_interfaces/lib:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_sdk/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/asabe', 'CHROME_DESKTOP': 'code-url-handler.desktop', 'OLDPWD': '/home/asabe/Documents', 'TERM_PROGRAM_VERSION': '1.78.2', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'MANAGERPID': '1644', 'SYSTEMD_EXEC_PID': '1834', 'IM_CONFIG_CHECK_ENV': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '9478', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/asabe/Documents/asabe-robot-2023/ROS/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'asabe', 'JOURNAL_STREAM': '8:28282', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'asabe', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/asabe/.local/bin:/opt/ros/humble/bin:/home/asabe/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/asabe-desktop:@/tmp/.ICE-unix/1785,unix/asabe-desktop:/tmp/.ICE-unix/1785', 'INVOCATION_ID': '7b15313db86f47d0bcd414d266c90a5f', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'Unity', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.56TV71', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-2756d99ef6.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '64', 'AMENT_PREFIX_PATH': '/home/asabe/Documents/asabe-robot-2023/ROS/install/stepper_hardware:/home/asabe/Documents/asabe-robot-2023/ROS/install/rplidar_ros:/home/asabe/Documents/asabe-robot-2023/ROS/install/pantilt_bot_description:/home/asabe/Documents/asabe-robot-2023/ROS/install/realsense2_description:/home/asabe/Documents/asabe-robot-2023/ROS/install/realsense2_camera:/home/asabe/Documents/asabe-robot-2023/ROS/install/realsense2_camera_msgs:/home/asabe/Documents/asabe-robot-2023/ROS/install/open_manipulator_x_description:/home/asabe/Documents/asabe-robot-2023/ROS/install/mecanum_hardware:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_workbench:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_hardware:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_workbench_toolbox:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_workbench_msgs:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_sdk_examples:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_sdk_custom_interfaces:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_sdk:/home/asabe/Documents/asabe-robot-2023/ROS/install/asabe_robot_description:/opt/ros/humble', 'ORIGINAL_XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GJS_DEBUG_OUTPUT': 'stderr', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '--ms-enable-electron-run-as-node', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/asabe/Documents/asabe-robot-2023/build/py_robot_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/asabe/Documents/asabe-robot-2023/build/py_robot_control/prefix_override:/home/asabe/Documents/asabe-robot-2023/install/py_robot_control/lib/python3.10/site-packages:/home/asabe/Documents/asabe-robot-2023/ROS/install/realsense2_camera_msgs/local/lib/python3.10/dist-packages:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_workbench_msgs/local/lib/python3.10/dist-packages:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/asabe/Documents/asabe-robot-2023/ROS/install/stepper_hardware:/home/asabe/Documents/asabe-robot-2023/ROS/install/rplidar_ros:/home/asabe/Documents/asabe-robot-2023/ROS/install/pantilt_bot_description:/home/asabe/Documents/asabe-robot-2023/ROS/install/realsense2_description:/home/asabe/Documents/asabe-robot-2023/ROS/install/realsense2_camera:/home/asabe/Documents/asabe-robot-2023/ROS/install/realsense2_camera_msgs:/home/asabe/Documents/asabe-robot-2023/ROS/install/open_manipulator_x_description:/home/asabe/Documents/asabe-robot-2023/ROS/install/mecanum_hardware:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_workbench:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_hardware:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_workbench_toolbox:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_workbench_msgs:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_sdk_examples:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_sdk_custom_interfaces:/home/asabe/Documents/asabe-robot-2023/ROS/install/dynamixel_sdk:/home/asabe/Documents/asabe-robot-2023/ROS/install/asabe_robot_description'}, 'shell': False}
+[4.133274] (-) TimerEvent: {}
+[4.234006] (-) TimerEvent: {}
+[4.334752] (-) TimerEvent: {}
+[4.435481] (-) TimerEvent: {}
+[4.536196] (-) TimerEvent: {}
+[4.636861] (-) TimerEvent: {}
+[4.737534] (-) TimerEvent: {}
+[4.838281] (-) TimerEvent: {}
+[4.939015] (-) TimerEvent: {}
+[5.039728] (-) TimerEvent: {}
+[5.140461] (-) TimerEvent: {}
+[5.241182] (-) TimerEvent: {}
+[5.341912] (-) TimerEvent: {}
+[5.442642] (-) TimerEvent: {}
+[5.543586] (-) TimerEvent: {}
+[5.598701] (py_robot_control) StdoutLine: {'line': b'running develop\n'}
+[5.603665] (py_robot_control) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.\n'}
+[5.604628] (py_robot_control) StderrLine: {'line': b'  warnings.warn(\n'}
+[5.610515] (py_robot_control) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[5.611163] (py_robot_control) StderrLine: {'line': b'  warnings.warn(\n'}
+[5.643667] (-) TimerEvent: {}
+[5.744379] (-) TimerEvent: {}
+[5.845114] (-) TimerEvent: {}
+[5.945857] (-) TimerEvent: {}
+[5.994023] (py_robot_control) StderrLine: {'line': b'/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.16.0-unknown is an invalid version and will not be supported in a future release\n'}
+[5.994950] (py_robot_control) StderrLine: {'line': b'  warnings.warn(\n'}
+[5.995663] (py_robot_control) StderrLine: {'line': b'/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.1build1 is an invalid version and will not be supported in a future release\n'}
+[5.996513] (py_robot_control) StderrLine: {'line': b'  warnings.warn(\n'}
+[5.997925] (py_robot_control) StderrLine: {'line': b'/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 0.1.43ubuntu1 is an invalid version and will not be supported in a future release\n'}
+[5.998526] (py_robot_control) StderrLine: {'line': b'  warnings.warn(\n'}
+[6.046013] (-) TimerEvent: {}
+[6.146699] (-) TimerEvent: {}
+[6.247490] (-) TimerEvent: {}
+[6.348240] (-) TimerEvent: {}
+[6.448878] (-) TimerEvent: {}
+[6.549553] (-) TimerEvent: {}
+[6.630878] (py_robot_control) StdoutLine: {'line': b'running egg_info\n'}
+[6.631704] (py_robot_control) StdoutLine: {'line': b'creating py_robot_control.egg-info\n'}
+[6.632449] (py_robot_control) StdoutLine: {'line': b'writing py_robot_control.egg-info/PKG-INFO\n'}
+[6.633278] (py_robot_control) StdoutLine: {'line': b'writing dependency_links to py_robot_control.egg-info/dependency_links.txt\n'}
+[6.633928] (py_robot_control) StdoutLine: {'line': b'writing entry points to py_robot_control.egg-info/entry_points.txt\n'}
+[6.634613] (py_robot_control) StdoutLine: {'line': b'writing requirements to py_robot_control.egg-info/requires.txt\n'}
+[6.635274] (py_robot_control) StdoutLine: {'line': b'writing top-level names to py_robot_control.egg-info/top_level.txt\n'}
+[6.636027] (py_robot_control) StdoutLine: {'line': b"writing manifest file 'py_robot_control.egg-info/SOURCES.txt'\n"}
+[6.642824] (py_robot_control) StdoutLine: {'line': b"reading manifest file 'py_robot_control.egg-info/SOURCES.txt'\n"}
+[6.645706] (py_robot_control) StdoutLine: {'line': b"writing manifest file 'py_robot_control.egg-info/SOURCES.txt'\n"}
+[6.649700] (-) TimerEvent: {}
+[6.652322] (py_robot_control) StdoutLine: {'line': b'running build_ext\n'}
+[6.653480] (py_robot_control) StdoutLine: {'line': b'Creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/lib/python3.10/site-packages/py-robot-control.egg-link (link to .)\n'}
+[6.658488] (py_robot_control) StdoutLine: {'line': b'Installing control_move script to /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/lib/py_pubsub\n'}
+[6.660557] (py_robot_control) StdoutLine: {'line': b'\n'}
+[6.662677] (py_robot_control) StdoutLine: {'line': b'Installed /home/asabe/Documents/asabe-robot-2023/build/py_robot_control\n'}
+[6.664497] (py_robot_control) StdoutLine: {'line': b'running install_data\n'}
+[6.672337] (py_robot_control) StdoutLine: {'line': b'creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index\n'}
+[6.678204] (py_robot_control) StdoutLine: {'line': b'creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index/resource_index\n'}
+[6.681397] (py_robot_control) StdoutLine: {'line': b'creating /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index/resource_index/packages\n'}
+[6.684999] (py_robot_control) StdoutLine: {'line': b'copying resource/py_robot_control -> /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/ament_index/resource_index/packages\n'}
+[6.687877] (py_robot_control) StdoutLine: {'line': b'copying package.xml -> /home/asabe/Documents/asabe-robot-2023/install/py_robot_control/share/py_robot_control\n'}
+[6.750040] (-) TimerEvent: {}
+[6.851017] (py_robot_control) CommandEnded: {'returncode': 0}
+[6.857996] (-) TimerEvent: {}
+[6.942778] (py_robot_control) JobEnded: {'identifier': 'py_robot_control', 'rc': 0}
+[6.946725] (-) EventReactorShutdown: {}
