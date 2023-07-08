@@ -10,6 +10,7 @@ void MSP_##NAME(const int fd, MSP_##NAME##_t * const data) { \
         .data=(uint8_t *)data,            \
     };                                    \
     MultiWii_send(fd, &packet);           \
+    MultiWii_recv(fd, &packet);           \
 }
 #endif
 
