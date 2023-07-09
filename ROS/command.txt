@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### RealSenseros2 topic pub --rate 3 /base_diff_controller/cmd_vros2 topic pub --rate 3 /base_diff_controller/cmd_vel_unstamped geometry_msgs/msg/Twist "{
   linear: {x: 0.1,y: 0,z: 0}, 
   angular: {x: 0, y: 0, z: 0}
@@ -5,6 +6,23 @@
   linear: {x: 0.1,y: 0,z: 0}, 
   angular: {x: 0, y: 0, z: 0}
 }"
+=======
+### BashRC Config
+
+# For ROS operation: BH: 2023.01.20
+source /opt/ros/humble/setup.bash
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+# For safe operation in the network
+export ROS_DOMAIN_ID=64
+# export ROS_LOCALHOST_ONLY=1
+# For colcon operation
+export _colcon_cd_root=/opt/ros/humble/
+source /usr/share/colcon_cd/function/colcon_cd.sh
+source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+
+
+### RealSense
+>>>>>>> ed14bda6319331f3572213488eb0a024520aa759
 # From: https://github.com/IntelRealSense/realsense-ros
 
 # Start the camera node with ros2 run:
