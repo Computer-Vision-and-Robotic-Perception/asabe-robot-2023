@@ -7,6 +7,9 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclpy REQUIRED)
 find_package(urdf REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
@@ -16,6 +19,13 @@ install(
   DIRECTORY . launch rviz config meshes urdf textures world maps
   DESTINATION share/${PROJECT_NAME}
 )
+
+install(
+  PROGRAMS scripts/locator.py
+  DESTINATION lib/${PROJECT_NAME}
+  )
+
+ament_python_install_package(${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
