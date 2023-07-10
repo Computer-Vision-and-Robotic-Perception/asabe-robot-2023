@@ -33,14 +33,17 @@ class Publisher(Node):
         super().__init__('locator')
         # self.im = np.ones((300, 300), dtype=int) * np.random.randint(0, 255)
         # self.timer = self.create_timer(timer_period_sec=3, callback=self.timer_callback)
-
         # Scanner localization
         self.ranges = None
         self.angles = None
-        self.pose = {'x': 1.2, 'x': 0.3, 'th': 3.14}    # original: 0.15, 0.15, 1.57079632679
+        self.pose = {'x': 1.2, 'y': 0.3, 'th': 3.14}    # original: 0.15, 0.15, 1.57079632679
         self.transform = {'x': 0.109, 'y': 0, 'th': 0}  #
         # TODO: Given the initial pose, compute the initial parametrization of the board edges 
         #       Go first trhough X and continue counterclockwise
+        self.x0 = {'r': 0,      'th': 0}         # x axis
+        self.y0 = {'r': 0,      'th': np.pi/2}   # y axis
+        self.x1 = {'r': 2.4384, 'th': 0}         # parallel to x
+        self.y1 = {'r': 2.4384, 'th': np.pi/2}   # parallel to y
 
         self.subscription = self.create_subscription(LaserScan, 'scan', self.listener_callback, 10)
         self.subscription  # prevent unused variable warning
