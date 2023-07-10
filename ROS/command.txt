@@ -1,12 +1,3 @@
-ros2 topic pub --rate 3 /base_diff_controller/cmd_vros2 topic pub --rate 3 /base_diff_controller/cmd_vel_unstamped geometry_msgs/msg/Twist "{
-  linear: {x: 0.1,y: 0,z: 0}, 
-  angular: {x: 0, y: 0, z: 0}
-}"el_unstamped geometry_msgs/msg/Twist "{
-  linear: {x: 0.1,y: 0,z: 0}, 
-  angular: {x: 0, y: 0, z: 0}
-}"
-
-
 ### .bashrc Config
 
 # For ROS operation: BH: 2023.01.20
@@ -21,12 +12,11 @@ source /usr/share/colcon_cd/function/colcon_cd.sh
 source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 
 # For the ASABE Robotics Competition
-/home/byron/Documents/asabe-robot-2023/ROS/install/setup.bash
-cd  /home/byron/Documents/asabe-robot-2023/ROS
+source /home/asabe/Documents/asabe-robot-2023/ROS/install/setup.bash
+cd  /home/asabe/Documents/asabe-robot-2023/ROS
 
 
 ### RealSense
->>>>>>> ed14bda6319331f3572213488eb0a024520aa759
 # From: https://github.com/IntelRealSense/realsense-ros
 
 # Start the camera node with ros2 run:
