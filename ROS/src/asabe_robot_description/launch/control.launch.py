@@ -84,7 +84,7 @@ def generate_launch_description():
         rviz_arg,
         controller_manager,
         joint_state_broadcaster,
-        base_velocity_controller,
+        # base_velocity_controller,
         base_trajectory_controller,
         base_diff_controller,
         arm_trajectory_controller,

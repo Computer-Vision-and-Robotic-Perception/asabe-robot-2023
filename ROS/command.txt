@@ -1,13 +1,13 @@
-<<<<<<< HEAD
-### RealSenseros2 topic pub --rate 3 /base_diff_controller/cmd_vros2 topic pub --rate 3 /base_diff_controller/cmd_vel_unstamped geometry_msgs/msg/Twist "{
+ros2 topic pub --rate 3 /base_diff_controller/cmd_vros2 topic pub --rate 3 /base_diff_controller/cmd_vel_unstamped geometry_msgs/msg/Twist "{
   linear: {x: 0.1,y: 0,z: 0}, 
   angular: {x: 0, y: 0, z: 0}
 }"el_unstamped geometry_msgs/msg/Twist "{
   linear: {x: 0.1,y: 0,z: 0}, 
   angular: {x: 0, y: 0, z: 0}
 }"
-=======
-### BashRC Config
+
+
+### .bashrc Config
 
 # For ROS operation: BH: 2023.01.20
 source /opt/ros/humble/setup.bash
@@ -19,6 +19,10 @@ export ROS_DOMAIN_ID=64
 export _colcon_cd_root=/opt/ros/humble/
 source /usr/share/colcon_cd/function/colcon_cd.sh
 source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+
+# For the ASABE Robotics Competition
+/home/byron/Documents/asabe-robot-2023/ROS/install/setup.bash
+cd  /home/byron/Documents/asabe-robot-2023/ROS
 
 
 ### RealSense
@@ -47,14 +51,14 @@ ros2 control switch_controllers --activate base_diff_controller
 ros2 topic pub --rate 3 /base_diff_controller/cmd_vel geometry_msgs/msg/TwistStamped "{
     header: auto, 
     twist:{
-        linear: {x: 0.1,y: 0,z: 0}, 
+        linear: {x: 0.20724,y: 0,z: 0}, 
         angular: {x: 0, y: 0, z: 0}
     }
 }"
 
 ros2 topic pub --rate 3 /base_diff_controller/cmd_vel_unstamped geometry_msgs/msg/Twist "{
-  linear: {x: 0.1,y: 0,z: 0}, 
-  angular: {x: 0, y: 0, z: 0}
+  linear: {x: 0.0,y: 0,z: 0}, 
+  angular: {x: 0, y: 0, z: 1.59}
 }"
 
 ros2 control switch_controllers --activate base_trajectory_controller
@@ -69,8 +73,19 @@ ros2 action send_goal /base_trajectory_controller/follow_joint_trajectory contro
   }
 }"
 
+ros2 action send_goal /base_trajectory_controller/follow_joint_trajectory control_msgs/action/FollowJointTrajectory -f "{
+  trajectory: {
+    joint_names: [Joint_wheel1, Joint_wheel2, Joint_wheel3, Joint_wheel4],
+    points: [
+      { positions: [0, 0, 0, 0], time_from_start: { sec: 10 } },
+      { positions: [0, 0, 0, 0], time_from_start: { sec: 12 } },
+      { positions: [6.28,  6.28,  6.28,  6.28], time_from_start: { sec: 14 } }
+    ]
+  }
+}"
+
 ros2 control switch_controllers --activate base_velocity_controller
-ros2 topic pub -1 /base_velocity_controller/commands std_msgs/msg/Float64MultiArray "data: [0.5, 0.5, 0.5, 0.5]"
+ros2 topic pub -1 /base_velocity_controller/commands std_msgs/msg/Float64MultiArray "data: [3.14, 3.14, 3.14, 3.14]"
 
 
 # Command for the arm control
@@ -113,3 +128,5 @@ ros2 topic pub -1 /goal_pose geometry_msgs/msg/PoseStamped "{
 
 # control robot with keyboard
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=/base_diff_controller/cmd_vel_unstamped
+
+ros2 launch adabe_robot_description control.launch.py

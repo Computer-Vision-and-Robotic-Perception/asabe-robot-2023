@@ -75,7 +75,7 @@ def generate_launch_description():
             PathJoinSubstitution([FindPackageShare('rplidar_ros'), 
                                   'launch', 'rplidar_a1_launch.py'])
         ]), launch_arguments={
-            'serial_port': '/dev/ttyUSB0',
+            'serial_port': '/dev/ttyAMA3',
             'frame_id': 'Link_lidar',
             'inverted': 'false',
         }.items()

@@ -36,13 +36,20 @@ class Publisher(Node):
         # Scanner localization
         self.ranges = None
         self.angles = None
-        self.pose = {'x': 1.2, 'y': 0.3, 'th': 3.14}    # original: 0.15, 0.15, 1.57079632679
-        self.transform = {'x': 0.109, 'y': 0, 'th': 0}  #
+        self.robot = {'x': 1.2, 'y': 0.3, 'th': 3.14} # original: 0.15, 0.15, 1.57079632679
+        
+        # Transformations robot-lidar
+        self.Hrl = {'x': -0.109, 'y': 0.0, 'th': 0.0}  # Rx + t  || # This transformations never changes
+        # Transformations world-robot (Initial position)
+        self.Hrw = {'x': 0.15, 'y': 0.15, 'th': 0.0}
+        # Transformation world-lidar : Hwr @ Hwr = Hwr - Hlr 
+        # self.Hlw = {'x': }
+
         # TODO: Given the initial pose, compute the initial parametrization of the board edges 
         #       Go first trhough X and continue counterclockwise
-        self.x0 = {'r': 0,      'th': 0}         # x axis
-        self.y0 = {'r': 0,      'th': np.pi/2}   # y axis
-        self.x1 = {'r': 2.4384, 'th': 0}         # parallel to x
+        self.x0 = {'r': 0.0000, 'th': 0.0}       # x axis
+        self.y0 = {'r': 0.0000, 'th': np.pi/2}   # y axis
+        self.x1 = {'r': 2.4384, 'th': 0.0}       # parallel to x
         self.y1 = {'r': 2.4384, 'th': np.pi/2}   # parallel to y
 
         self.subscription = self.create_subscription(LaserScan, 'scan', self.listener_callback, 10)
