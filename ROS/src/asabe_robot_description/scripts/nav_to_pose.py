@@ -63,23 +63,22 @@ def main():
   # global_costmap = navigator.getGlobalCostmap()
   # local_costmap = navigator.getLocalCostmap()
 
-  pose_list = [[2.20, -0.3, 0.0, -1.0],
-               [2.20, -0.9, 0.0, -1.0],
-               [2.20, -0.9, 0.0, 0.0],
-               [1.72, -0.9, 0.0, 0.0],
-               [1.60, -0.9, 0.0, 0.0],
-               [1.48, -0.9, 0.0, 0.0],
+  pose_list = [[0.25, -0.9, 0.0, -1.0],
+               [0.25, -0.9, 0.0, 0.0],
+               [0.72, -0.9, 0.0, 0.0],
+               [0.84, -0.9, 0.0, 0.0],
+               [0.96, -0.9, 0.0, 0.0],
                [1.36, -0.9, 0.0, 0.0],
-               [1.24, -0.9, 0.0, 0.0],
-               [1.12, -0.9, 0.0, 0.0],
-               [1.00, -0.9, 0.0, 0.0],
-               [0.88, -0.9, 0.0, 0.0],
-               [0.76, -0.9, 0.0, 0.0],
-               [0.5, -0.9, 0.0, 0.0],
-               [0.5, -0.9, 0.0, 1.0]]
+               [1.20, -0.9, 0.0, 0.0],
+               [1.32, -0.9, 0.0, 0.0],
+               [1.44, -0.9, 0.0, 0.0],
+               [0.56, -0.9, 0.0, 0.0],
+               [0.68, -0.9, 0.0, 0.0],
+               [0.94, -0.9, 0.0, 0.0],
+               [0.94, -0.9, 0.0, -1.0]]
  
-  for p in pose_list:
-  
+  for i, p in enumerate(pose_list):
+    # input('Press enter to continue to goal %d' % (i + 1))
     # Set the robot's goal pose
     goal_pose = PoseStamped()
     goal_pose.header.frame_id = 'map'
@@ -136,7 +135,7 @@ def main():
         print('Goal has an invalid return status!')
  
   # Shut down the ROS 2 Navigation Stack
-  navigator.lifecycleShutdown()
+  # navigator.lifecycleShutdown()
  
   exit(0)
  

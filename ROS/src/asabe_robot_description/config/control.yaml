@@ -82,8 +82,8 @@ base_diff_controller:
         has_velocity_limits: true
         has_acceleration_limits: false
         has_jerk_limits: false
-        max_velocity:  0.6 # 0.24
-        min_velocity: -0.6 # -0.24
+        max_velocity:  0.05 # 0.24
+        min_velocity: -0.05 # -0.24
         max_acceleration: .NAN
         min_acceleration: .NAN
         max_jerk: .NAN
@@ -93,8 +93,8 @@ base_diff_controller:
         has_velocity_limits: true
         has_acceleration_limits: false
         has_jerk_limits: false
-        max_velocity:  0.45  # 1.8
-        min_velocity: -0.45  #-1.8
+        max_velocity:  0.4  # 1.8
+        min_velocity: -0.4  #-1.8
         max_acceleration: .NAN
         min_acceleration: .NAN
         max_jerk: .NAN
