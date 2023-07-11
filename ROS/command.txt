@@ -41,14 +41,14 @@ ros2 control switch_controllers --activate base_diff_controller
 ros2 topic pub --rate 3 /base_diff_controller/cmd_vel geometry_msgs/msg/TwistStamped "{
     header: auto, 
     twist:{
-        linear: {x: 0.20724,y: 0,z: 0}, 
+        linear: {x: 0.020724,y: 0,z: 0}, 
         angular: {x: 0, y: 0, z: 0}
     }
 }"
 
 ros2 topic pub --rate 3 /base_diff_controller/cmd_vel_unstamped geometry_msgs/msg/Twist "{
-  linear: {x: 0.0,y: 0,z: 0}, 
-  angular: {x: 0, y: 0, z: 1.59}
+  linear: {x: 0.0, y: 0,z: 0}, 
+  angular: {x: 0, y: 0, z: 0.3927}
 }"
 
 ros2 control switch_controllers --activate base_trajectory_controller

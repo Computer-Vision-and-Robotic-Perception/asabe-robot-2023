@@ -21,7 +21,10 @@ install(
 )
 
 install(
-  PROGRAMS scripts/locator.py
+  PROGRAMS
+  scripts/locator.py 
+  scripts/nav_to_pose.py 
+  scripts/robot_navigator.py
   DESTINATION lib/${PROJECT_NAME}
   )
 
